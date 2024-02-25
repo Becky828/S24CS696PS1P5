@@ -1,0 +1,3 @@
+[submodule "CMakeSchieleF23CS635a1/external/googletest"]
+	path = CMakeSchieleF23CS635a1/external/googletest
+	url = https://github.com/google/googletest.git
