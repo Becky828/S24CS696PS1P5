@@ -56,6 +56,13 @@ build CMakeFiles\CMakeS24CS696_PS1_p5.dir\CMakeS24CS696_PS1_p5.cpp.obj: CXX_COMP
   TARGET_COMPILE_PDB = CMakeFiles\CMakeS24CS696_PS1_p5.dir\
   TARGET_PDB = CMakeS24CS696_PS1_p5.pdb
 
+build CMakeFiles\CMakeS24CS696_PS1_p5.dir\pagerank_template-1.cpp.obj: CXX_COMPILER__CMakeS24CS696_PS1_p5_unscanned_Debug C$:\Users\Owner\source\repos\S24CS696hw\S24CS696PS1P5\CMakeS24CS696_PS1_p5\pagerank_template-1.cpp || cmake_object_order_depends_target_CMakeS24CS696_PS1_p5
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  OBJECT_DIR = CMakeFiles\CMakeS24CS696_PS1_p5.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMakeS24CS696_PS1_p5.dir
+  TARGET_COMPILE_PDB = CMakeFiles\CMakeS24CS696_PS1_p5.dir\
+  TARGET_PDB = CMakeS24CS696_PS1_p5.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CMakeS24CS696_PS1_p5
@@ -64,7 +71,7 @@ build CMakeFiles\CMakeS24CS696_PS1_p5.dir\CMakeS24CS696_PS1_p5.cpp.obj: CXX_COMP
 #############################################
 # Link the executable CMakeS24CS696_PS1_p5.exe
 
-build CMakeS24CS696_PS1_p5.exe: CXX_EXECUTABLE_LINKER__CMakeS24CS696_PS1_p5_Debug CMakeFiles\CMakeS24CS696_PS1_p5.dir\CMakeS24CS696_PS1_p5.cpp.obj
+build CMakeS24CS696_PS1_p5.exe: CXX_EXECUTABLE_LINKER__CMakeS24CS696_PS1_p5_Debug CMakeFiles\CMakeS24CS696_PS1_p5.dir\CMakeS24CS696_PS1_p5.cpp.obj CMakeFiles\CMakeS24CS696_PS1_p5.dir\pagerank_template-1.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

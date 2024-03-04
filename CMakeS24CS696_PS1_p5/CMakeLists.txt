@@ -12,7 +12,7 @@ endif()
 project ("CMakeS24CS696_PS1_p5")
 
 # Add source to this project's executable.
-add_executable (CMakeS24CS696_PS1_p5 "CMakeS24CS696_PS1_p5.cpp" "CMakeS24CS696_PS1_p5.h")
+add_executable (CMakeS24CS696_PS1_p5 "CMakeS24CS696_PS1_p5.cpp" "CMakeS24CS696_PS1_p5.h" "pagerank_template-1.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeS24CS696_PS1_p5 PROPERTY CXX_STANDARD 20)
@@ -31,3 +31,5 @@ include(UpdateSubmodules.cmake)
 add_subdirectory(tests)
 add_subdirectory(external)
 
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/web-Stanford.txt
+     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

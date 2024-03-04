@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 #include <cmath>
+using namespace std;
 
 // Custom comparison function to compare pairs based on the second value
 bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>& b) {
@@ -12,7 +13,10 @@ bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>
 }
 
 int main() {
-    std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
+    ifstream file;
+    file.open("web-Stanford.txt");
+
+   // std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
     if (!file.is_open()) {
         std::cerr << "Unable to open file" << std::endl;
         return 1;
@@ -45,17 +49,24 @@ int main() {
     
     file.close();
 
-    double epsilon = 0.15, avg_error = 0.00001;
+    double epsilon = 0.15, one_minus_epsilon = 1-epsilon, avg_error = 0.00001;
     int n = nodes.size();
-    int num_iterations = (int) (std::log(avg_error) / std::log(1 - epsilon));
 
+    int num_iterations = (int) (std::log(avg_error) / std::log(one_minus_epsilon));
+    double avg_epsilon = epsilon / n;
     // Initialize pagerank
     for (int node : nodes) {
         pagerank[node] = 1.0 / n;
     }
 
     // Implement the pagerank algorithm here
+    for (int t = 1; t < num_iterations; t++)
+    {
+        for (int v = 1; v < n; v++) {
+            edges[v];
+        }
 
+    }
     // Print the pagerank of the top 1000 nodes
 
     // Output all the nodes and their pageranks in a file
