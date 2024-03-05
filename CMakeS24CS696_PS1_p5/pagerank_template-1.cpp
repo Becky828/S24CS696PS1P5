@@ -3,36 +3,55 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <algorithm>
 #include <set>
 #include <cmath>
 
 // Custom comparison function to compare pairs based on the second value
+//bool compareSecond(std::pair<int, double>& a, std::pair<int, double>& b) {
+
 bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>& b) {
 	return a.second > b.second;
 }
 
 // Function to sort the map according 
 // to value in a (key-value) pairs 
-std::multimap<double, int> sort(std::map<int, double>& P) {
+std::vector<std::pair<int, double> > sort (std::map<int, double> M)
+{
+
+	// Declare vector of pairs 
+	std::vector<std::pair<int, double> > A;
 
 
-	// Declare a multimap
-	std::multimap<double, int> MM;
-
-	// Insert every (key-value) pairs from
-	// map M to multimap MM as (value-key)
-	// pairs
-	for (auto& it : P) {
-		MM.insert({ it.second, it.first });
+	// copy key-value pairs from the map to the vector
+	std::map<int, double> ::iterator it2;
+	for (it2 = M.begin(); it2 != M.end(); it2++)
+	{
+		A.push_back(std::make_pair(it2->first, it2->second));
 	}
 
-	return MM;
+	// Copy key-value pair from Map 
+	// to vector of pairs 
+	for (auto& it : M) {
+		A.push_back(it);
+	}
+
+	// Sort using comparator function 
+	sort(A.begin(), A.end(), compareSecond);
+
+	// Print the sorted value 
+	//for (auto& it : A) {
+
+		//std::cout << it.first << ' '
+			//<< it.second << std::endl;
+	return A;
 }
 
+
 // Print the first thousand entries of the multimap
-void topThousandPrinter(std::multimap<double, int> MM) {
+void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 	int count = 0;
-	for (auto& it : MM) {
+	for (auto& it : V) {
 		++count;
 		if (count > 1000) {
 			break;
@@ -69,7 +88,7 @@ void fileCloser(std::fstream& f) {
 }
 
 // Function to write pagerank to file
-void pageRankWriter(std::multimap<double, int> MM) {
+void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 	char filename[] = "pagerank_out.txt";
 	std::fstream currentFile;
@@ -148,7 +167,7 @@ int main() {
 
 	}
 
-	std::multimap<double, int>  sorted = sort(pagerank);
+	std::vector<std::pair<int, double> >   sorted = sort(pagerank);
 
 	// Print the pagerank of the top 1000 nodes
 	topThousandPrinter(sorted);
