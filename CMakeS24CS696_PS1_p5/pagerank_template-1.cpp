@@ -11,6 +11,69 @@ bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>
     return a.second > b.second;
 }
 
+// Function to sort the map according 
+// to value in a (key-value) pairs 
+void sort(std::map<int, double>& P){
+      
+
+        // Declare a multimap
+        std::multimap<int, double> MM;
+
+        // Insert every (key-value) pairs from
+        // map M to multimap MM as (value-key)
+        // pairs
+        for (auto& it : P) {
+            MM.insert({ it.second, it.first });
+        }
+
+        int count = 0;
+        // Print the multimap
+        for (auto& it : MM) {
+            ++count;
+            if (count > 1000) {
+				break;
+			}
+            std::cout << it.second << ' ' << it.first << std::endl;
+        }
+    }
+
+
+
+    // Declare vector of pairs 
+    //std::vector<std::pair<int , double> > A;
+
+    // Copy key-value pair from Map 
+    // to vector of pairs 
+    //for (auto& it : P) {
+      //  A.push_back(it);
+    //}
+   // const  std::vector<std::pair<int, double> >& B = A;
+   // auto start = A.begin();
+   // auto end = A.end();
+    // Sort using comparator function
+    // 
+   // const std::vector<const std::pair<int, double> > B;
+    //B = const_cast<std::vector<const std::pair<int, double> >&>(A);
+    //std::iterator start;
+    //start = A.begin();
+    //const auto end = A.end();
+    //sort( start, end, compareSecond);
+    //const std::vector<std::pair<int, double> > B = const_cast<std::vector<std::pair<int, double> >&>(A);
+    //sort(B.begin(), B.end(), compareSecond);
+    //sort(A.begin(), A.end(), compareSecond);
+    //sort(*A.begin(), A.end(), [=](std::pair<int, int>& a, std::pair<int, int>& b)
+    //{
+      //  return a.second < b.second;
+    //}
+    // Print the sorted value 
+    //for (auto& it : A) {
+
+      //  std::cout << it.first << ' '
+        //    << it.second << std::endl;
+    //}
+//}
+
+
 int main() {
    // ifstream file;
    // file.open("web-Stanford.txt");
@@ -33,7 +96,7 @@ int main() {
     }
 
     std::map<int, std::vector<int> > edges;
-    std::map<int, double> pagerank;
+    std::map<int, double> pagerank, previous_pagerank;
     std::set<int> nodes;
     std::map<int, int> out_degree;
 
@@ -58,24 +121,68 @@ int main() {
         pagerank[node] = 1.0 / n;
     }
 
+    //A
     // Implement the pagerank algorithm here
     for (int t = 1; t < num_iterations; t++)
     {
+        previous_pagerank = pagerank;
         for (int node : nodes)
         {
 		   double sum = 0;
            for (int from_node : edges[node])
            {
-			   sum += pagerank[from_node] / out_degree[from_node];
+			   sum += previous_pagerank[from_node] / out_degree[from_node];
 		   }
            pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
 	   }
 
     }
     // Print the pagerank of the top 1000 nodes
+    sort(pagerank);
 
+    //Top 5 pagerank tracker here
+    // 
+    // 
+    
+
+
+
+   // int count = 0;
+    //for (int node : nodes) {
+      //  if (count > 1000) {
+        //    break;
+        //}
+        //std::cout << ++count + pagerank[node];
+        //std::cout << ++count << ' \t ' << pagerank[node];
+    //}
+    //        
+    //}
+    
     // Output all the nodes and their pageranks in a file
+    char filename[] = "pagerank_out.txt";
+    std::fstream appendFileToWorkWith;
 
+    appendFileToWorkWith.open(filename, std::ofstream::out | std::ofstream::trunc);
+
+
+    // If file does not exist, Create new file
+    if (!appendFileToWorkWith)
+    {
+        std::cout << "Cannot open file, file does not exist. Creating new file..";
+
+        appendFileToWorkWith.open(filename, std::fstream::in | std::fstream::out | std::fstream::trunc);
+    }
+    else
+    {    // use existing file
+        //cout << "success " << filename << " found. \n";
+        //cout << "\nAppending writing and working with existing file" << "\n---\n";
+        //ofs.open("test.txt", std::ofstream::out | std::ofstream::trunc);
+
+        appendFileToWorkWith << "Appending writing and working with existing file" << "\n---\n";
+        appendFileToWorkWith.close();
+        std::cout << "\n";
+
+    }
 
     return 0;
 }
