@@ -13,7 +13,7 @@ bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>
 
 // Function to sort the map according 
 // to value in a (key-value) pairs 
-void sort(std::map<int, double>& P){
+std::multimap<int, double> sort(std::map<int, double>& P){
       
 
         // Declare a multimap
@@ -26,18 +26,60 @@ void sort(std::map<int, double>& P){
             MM.insert({ it.second, it.first });
         }
 
-        int count = 0;
-        // Print the multimap
-        for (auto& it : MM) {
-            ++count;
-            if (count > 1000) {
-				break;
-			}
-            std::cout << it.second << ' ' << it.first << std::endl;
-        }
+        return MM;
     }
 
+ void topThousandPrinter(std::multimap<int, double> MM) {
+    // Print the first thousand entries of the multimap
+    int count = 0;
+    for (auto& it : MM) {
+        ++count;
+        if (count > 1000) {
+            break;
+        }
+        std::cout << it.second << ' ' << it.first << std::endl;
+    }
+}
 
+ std::fstream fileLoader(char fn[]) {
+     
+     //Try to open the file
+     std::fstream file(fn);
+
+     // If file does not exist, Create new file
+     if (!file.is_open())
+     {
+         file.open(fn, std::fstream::in | std::fstream::out | std::fstream::trunc);
+     }
+
+     //If file exists, clear file
+     else
+     {
+         // use existing file
+         file.open(fn, std::ofstream::out | std::ofstream::trunc);
+         //cout << "success " << filename << " found. \n";
+         //cout << "\nAppending writing and working with existing file" << "\n---\n";
+         //ofs.open("test.txt", std::ofstream::out | std::ofstream::trunc);        
+
+     }
+     return file;
+ }
+
+ void fileCloser(std::fstream &f) {
+     f.close();
+     std::cout << "\n";
+ }
+
+ void pageRankWriter(std::multimap<int, double> MM) {
+
+     char filename[] = "pagerank_out.txt";
+
+     std::fstream currentFile;
+     currentFile = fileLoader(filename);
+
+     //fileCloser(currentFile);
+
+ }
 
     // Declare vector of pairs 
     //std::vector<std::pair<int , double> > A;
@@ -138,7 +180,7 @@ int main() {
 
     }
     // Print the pagerank of the top 1000 nodes
-    sort(pagerank);
+    std::multimap<int, double>  sorted = sort(pagerank);
 
     //Top 5 pagerank tracker here
     // 
@@ -159,30 +201,8 @@ int main() {
     //}
     
     // Output all the nodes and their pageranks in a file
-    char filename[] = "pagerank_out.txt";
-    std::fstream appendFileToWorkWith;
-
-    appendFileToWorkWith.open(filename, std::ofstream::out | std::ofstream::trunc);
-
-
-    // If file does not exist, Create new file
-    if (!appendFileToWorkWith)
-    {
-        std::cout << "Cannot open file, file does not exist. Creating new file..";
-
-        appendFileToWorkWith.open(filename, std::fstream::in | std::fstream::out | std::fstream::trunc);
-    }
-    else
-    {    // use existing file
-        //cout << "success " << filename << " found. \n";
-        //cout << "\nAppending writing and working with existing file" << "\n---\n";
-        //ofs.open("test.txt", std::ofstream::out | std::ofstream::trunc);
-
-        appendFileToWorkWith << "Appending writing and working with existing file" << "\n---\n";
-        appendFileToWorkWith.close();
-        std::cout << "\n";
-
-    }
+    pageRankWriter(sorted);
+   
 
     return 0;
 }
