@@ -16,12 +16,10 @@ bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>
 
 // Function to sort the map according 
 // to value in a (key-value) pairs 
-std::vector<std::pair<int, double> > sort (std::map<int, double> M)
+std::vector<std::pair<int, double> > sort(std::map<int, double> M)
 {
-
 	// Declare vector of pairs 
 	std::vector<std::pair<int, double> > A;
-
 
 	// copy key-value pairs from the map to the vector
 	std::map<int, double> ::iterator it2;
@@ -30,23 +28,11 @@ std::vector<std::pair<int, double> > sort (std::map<int, double> M)
 		A.push_back(std::make_pair(it2->first, it2->second));
 	}
 
-	// Copy key-value pair from Map 
-	// to vector of pairs 
-	for (auto& it : M) {
-		A.push_back(it);
-	}
-
 	// Sort using comparator function 
 	sort(A.begin(), A.end(), compareSecond);
 
-	// Print the sorted value 
-	//for (auto& it : A) {
-
-		//std::cout << it.first << ' '
-			//<< it.second << std::endl;
 	return A;
 }
-
 
 // Print the first thousand entries of the multimap
 void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
@@ -58,6 +44,26 @@ void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 		}
 		std::cout << it.second << ' ' << it.first << std::endl;
 	}
+}
+
+//Gets the top 5 pagerank nodes
+std::vector<std::pair<int, double>> topFiveGetter(std::vector<std::pair<int, double> >  V) {
+	int count = 0;
+
+	// Declare vector of pairs 
+	std::vector<std::pair<int, double> > A;
+
+	// copy key-value pairs from the map to the vector
+	std::vector<std::pair<int, double> >::iterator iter = V.begin();
+	for (iter; iter != V.end(); iter++)
+	{
+		++count;
+		if (count > 5) {
+			break;
+		}
+		A.push_back(std::make_pair(iter->first, iter->second));
+	}
+	return A;
 }
 
 // Function to load file
@@ -87,18 +93,33 @@ void fileCloser(std::fstream& f) {
 	std::cout << "\n";
 }
 
-// Function to write pagerank to file
+//Writes each node and its pagerank to a text file line line by line in decreasing order of pagerank
 void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 	char filename[] = "pagerank_out.txt";
-	std::fstream currentFile;
+	//std::fstream currentFile;
 
-	currentFile = fileLoader(filename);
+	//currentFile = fileLoader(filename);
+	std::fstream file(filename);
 
-	
-	//std::cout << "Opened file successfully" << std::endl;
+	// If file does not exist, Create new file
+	if (!file.is_open())
+	{
+		file.open(filename, std::fstream::in | std::fstream::out | std::fstream::trunc);
+	}
 
-	fileCloser(currentFile);
+	//If file exists, clear file
+	else
+	{
+		file.open(filename, std::ofstream::out | std::ofstream::trunc);
+	}
+	for (std::pair<int, double>  v : V) {
+		file << v.second << ' ' << v.first << std::endl;
+
+	}
+		
+	file.close();
+	//fileCloser(currentFile);
 
 }
 
@@ -174,7 +195,9 @@ int main() {
 
 
 	// Output all the nodes and their pageranks in a file
-	pageRankWriter(sorted);
+//	pageRankWriter(sorted);
+
+	
 
 	//Top 5 pagerank tracker here
 	// 

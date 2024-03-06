@@ -22,3 +22,5 @@
 //https://stackoverflow.com/questions/7424805/how-to-iterate-count-for-a-multimapstring-string
 //https://www.educative.io/answers/how-to-sort-a-map-by-value-in-cpp
 //https://en.cppreference.com/w/cpp/utility/pair/make_pair
+//https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp
+//https://stackoverflow.com/questions/3450860/check-if-a-stdvector-contains-a-certain-object
