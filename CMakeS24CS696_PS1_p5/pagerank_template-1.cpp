@@ -94,6 +94,8 @@ void fileCloser(std::fstream& f) {
 }
 
 //Writes each node and its pagerank to a text file line line by line in decreasing order of pagerank
+//void pageRankWriter(std::map<int, double>   V) {
+
 void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 	char filename[] = "pagerank_out.txt";
@@ -113,7 +115,14 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 	{
 		file.open(filename, std::ofstream::out | std::ofstream::trunc);
 	}
+
+	int count = 0;
+
 	for (std::pair<int, double>  v : V) {
+		//++count;
+		//if (count > 10) {
+			//break;
+		//}
 		file << v.second << ' ' << v.first << std::endl;
 
 	}
@@ -171,6 +180,10 @@ int main() {
 		pagerank[node] = 1.0 / n;
 	}
 
+
+	//pageRankWriter(pagerank);
+
+
 	//A
 	// Implement the pagerank algorithm here
 	for (int t = 1; t < num_iterations; t++)
@@ -195,7 +208,7 @@ int main() {
 
 
 	// Output all the nodes and their pageranks in a file
-//	pageRankWriter(sorted);
+	pageRankWriter(sorted);
 
 	
 

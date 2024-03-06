@@ -34,5 +34,5 @@ add_subdirectory(external)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/web-Stanford.txt
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
- file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/pagerank_out.txt
-     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+# file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/pagerank_out.txt
+ #    DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
