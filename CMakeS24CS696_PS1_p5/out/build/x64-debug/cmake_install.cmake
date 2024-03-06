@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/tests/cmake_install.cmake")
   include("C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/external/cmake_install.cmake")
+  include("C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/matplotplusplus/cmake_install.cmake")
 
 endif()
 

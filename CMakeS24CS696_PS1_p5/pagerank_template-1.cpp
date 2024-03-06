@@ -1,3 +1,5 @@
+//#include "matplotlibcpp.h"
+#include <matplot/matplot.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -156,6 +158,8 @@ int main() {
 
 	std::map<int, std::vector<int> > edges;
 	std::map<int, double> pagerank, previous_pagerank;
+	std::map<int, double> plotted_pagerank, plotted_previous_pagerank;
+
 	std::set<int> nodes;
 	std::map<int, int> out_degree;
 
@@ -211,10 +215,10 @@ int main() {
 	pageRankWriter(sorted);
 
 	
-
+	//B
 	//Top 5 pagerank tracker here
 	// 
-
+	topFiveGetter(sorted);
 
 	return 0;
 }

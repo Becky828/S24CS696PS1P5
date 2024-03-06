@@ -14,6 +14,9 @@ project ("CMakeS24CS696_PS1_p5")
 # Add source to this project's executable.
 add_executable (CMakeS24CS696_PS1_p5 "CMakeS24CS696_PS1_p5.cpp" "CMakeS24CS696_PS1_p5.h" "pagerank_template-1.cpp")
 
+#add_executable(my_target main.cpp)
+target_link_libraries(CMakeS24CS696_PS1_p5 PUBLIC matplot)
+
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeS24CS696_PS1_p5 PROPERTY CXX_STANDARD 20)
 endif()
@@ -30,9 +33,12 @@ include(UpdateSubmodules.cmake)
 # Add subdirectories with code
 add_subdirectory(tests)
 add_subdirectory(external)
+add_subdirectory(matplotplusplus)
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/web-Stanford.txt
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 # file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/pagerank_out.txt
  #    DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+ #target_include_directories

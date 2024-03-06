@@ -256,3 +256,146 @@ events:
         
       exitCode: 1
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindBLAS.cmake:372 (check_function_exists)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindBLAS.cmake:416 (check_blas_libraries)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindLAPACK.cmake:247 (find_package)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/FindLAPACK.cmake:283 (_lapack_find_dependency)"
+      - "matplotplusplus/source/3rd_party/CMakeLists.txt:96 (find_package)"
+    checks:
+      - "Looking for sgemm_"
+    directories:
+      source: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-41048u"
+      binary: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-41048u"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/matplotplusplus/cmake"
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "BLAS_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-41048u'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_fb9e8
+        [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DCHECK_FUNCTION_EXISTS=sgemm_ /MDd /Ob0 /Od /RTC1 -Zi /showIncludes /FoCMakeFiles\\cmTC_fb9e8.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_fb9e8.dir\\ /FS -c C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-41048u\\CheckFunctionExists.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_fb9e8.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_fb9e8.dir\\CheckFunctionExists.c.obj  /out:cmTC_fb9e8.exe /implib:cmTC_fb9e8.lib /pdb:cmTC_fb9e8.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_fb9e8.exe 
+        C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_fb9e8.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_fb9e8.dir\\CheckFunctionExists.c.obj  /out:cmTC_fb9e8.exe /implib:cmTC_fb9e8.lib /pdb:cmTC_fb9e8.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_fb9e8.dir\\CheckFunctionExists.c.obj /out:cmTC_fb9e8.exe /implib:cmTC_fb9e8.lib /pdb:cmTC_fb9e8.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_fb9e8.dir/intermediate.manifest CMakeFiles\\cmTC_fb9e8.dir/manifest.res" failed (exit code 1120) with the following output:
+        CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol sgemm_ referenced in function main\x0d
+        cmTC_fb9e8.exe : fatal error LNK1120: 1 unresolved externals\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckSourceCompiles.cmake:77 (cmake_check_source_compiles)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/GenerateExportHeader.cmake:206 (check_source_compiles)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/GenerateExportHeader.cmake:263 (_check_cxx_compiler_attribute)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/GenerateExportHeader.cmake:420 (_test_compiler_has_deprecated)"
+      - "matplotplusplus/source/matplot/CMakeLists.txt:105 (generate_export_header)"
+    checks:
+      - "Performing Test COMPILER_HAS_DEPRECATED_ATTR"
+    directories:
+      source: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-yqzi5p"
+      binary: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-yqzi5p"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/matplotplusplus/cmake"
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "COMPILER_HAS_DEPRECATED_ATTR"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-yqzi5p'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_5e728
+        [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DCOMPILER_HAS_DEPRECATED_ATTR  /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Ob0 /Od /RTC1 -Zi /showIncludes /FoCMakeFiles\\cmTC_5e728.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_5e728.dir\\ /FS -c C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx
+        FAILED: CMakeFiles/cmTC_5e728.dir/src.cxx.obj 
+        C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DCOMPILER_HAS_DEPRECATED_ATTR  /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Ob0 /Od /RTC1 -Zi /showIncludes /FoCMakeFiles\\cmTC_5e728.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_5e728.dir\\ /FS -c C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx(1): error C2065: '__deprecated__': undeclared identifier
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx(1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx(1): error C2062: type 'int' unexpected
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx(1): error C2143: syntax error: missing ';' before '{'
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx(1): error C2447: '{': missing function header (old-style formal list?)
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-yqzi5p\\src.cxx(2): error C3861: 'somefunc': identifier not found
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckSourceCompiles.cmake:77 (cmake_check_source_compiles)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/GenerateExportHeader.cmake:206 (check_source_compiles)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/GenerateExportHeader.cmake:269 (_check_cxx_compiler_attribute)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/GenerateExportHeader.cmake:420 (_test_compiler_has_deprecated)"
+      - "matplotplusplus/source/matplot/CMakeLists.txt:105 (generate_export_header)"
+    checks:
+      - "Performing Test COMPILER_HAS_DEPRECATED"
+    directories:
+      source: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-4nexkc"
+      binary: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-4nexkc"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/matplotplusplus/cmake"
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "COMPILER_HAS_DEPRECATED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-4nexkc'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_30adc
+        [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DCOMPILER_HAS_DEPRECATED  /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Ob0 /Od /RTC1 -Zi /showIncludes /FoCMakeFiles\\cmTC_30adc.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_30adc.dir\\ /FS -c C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-4nexkc\\src.cxx
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-4nexkc\\src.cxx(2): warning C4996: 'somefunc': was declared deprecated
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_30adc.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_30adc.dir\\src.cxx.obj  /out:cmTC_30adc.exe /implib:cmTC_30adc.lib /pdb:cmTC_30adc.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.28/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "matplotplusplus/source/matplot/CMakeLists.txt:141 (check_symbol_exists)"
+    checks:
+      - "Looking for __fbufsize"
+    directories:
+      source: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-pxfjsy"
+      binary: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-pxfjsy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/matplotplusplus/cmake"
+      CMAKE_MSVC_DEBUG_INFORMATION_FORMAT: "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
+    buildResult:
+      variable: "HAVE_FBUFSIZE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/CMakeFiles/CMakeScratch/TryCompile-pxfjsy'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v cmTC_78332
+        [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Ob0 /Od /RTC1 -Zi /showIncludes /FoCMakeFiles\\cmTC_78332.dir\\CheckSymbolExists.c.obj /FdCMakeFiles\\cmTC_78332.dir\\ /FS -c C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pxfjsy\\CheckSymbolExists.c
+        FAILED: CMakeFiles/cmTC_78332.dir/CheckSymbolExists.c.obj 
+        C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1439~1.335\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Ob0 /Od /RTC1 -Zi /showIncludes /FoCMakeFiles\\cmTC_78332.dir\\CheckSymbolExists.c.obj /FdCMakeFiles\\cmTC_78332.dir\\ /FS -c C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pxfjsy\\CheckSymbolExists.c
+        C:\\Users\\Owner\\source\\repos\\S24CS696hw\\S24CS696PS1P5\\CMakeS24CS696_PS1_p5\\out\\build\\x64-debug\\CMakeFiles\\CMakeScratch\\TryCompile-pxfjsy\\CheckSymbolExists.c(2): fatal error C1083: Cannot open include file: 'stdio_ext.h': No such file or directory
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...

@@ -24,3 +24,9 @@
 //https://en.cppreference.com/w/cpp/utility/pair/make_pair
 //https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp
 //https://stackoverflow.com/questions/3450860/check-if-a-stdvector-contains-a-certain-object
+//https://www.reddit.com/r/computervision/comments/r1motz/how_to_plot_graphs_in_c/
+//https://matplotlib-cpp.readthedocs.io/en/latest/
+//https://stackoverflow.com/questions/66507618/running-python-matplotlibcpp-in-visual-studio-2019
+//https://github.com/python/cpython/blob/main/Include/Python.h
+//https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-vs?pivots=shell-bash
+//https://github.com/alandefreitas/matplotplusplus?tab=readme-ov-file

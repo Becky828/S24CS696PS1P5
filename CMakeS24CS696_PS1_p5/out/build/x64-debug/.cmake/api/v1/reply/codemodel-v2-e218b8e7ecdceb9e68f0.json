@@ -1,0 +1,583 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28
+					]
+				},
+				{
+					"build" : "tests",
+					"jsonFile" : "directory-tests-Debug-70e4927a02b591d5c1f8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tests",
+					"targetIndexes" : 
+					[
+						34
+					]
+				},
+				{
+					"build" : "external",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external-Debug-d8969718d56d94ae4e32.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "external"
+				},
+				{
+					"build" : "external/googletest",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.googletest-Debug-cadaf7995ce84f373e64.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "external/googletest"
+				},
+				{
+					"build" : "external/googletest/googlemock",
+					"childIndexes" : 
+					[
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.googletest.googlemock-Debug-63ce45ff02f3b2209fe1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "external/googletest/googlemock",
+					"targetIndexes" : 
+					[
+						29,
+						30
+					]
+				},
+				{
+					"build" : "external/googletest/googletest",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.googletest.googletest-Debug-5b72e12d204994b12561.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/googletest/googletest",
+					"targetIndexes" : 
+					[
+						31,
+						32
+					]
+				},
+				{
+					"build" : "matplotplusplus",
+					"childIndexes" : 
+					[
+						7
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-matplotplusplus-Debug-68e6936f8b008de647a3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "matplotplusplus"
+				},
+				{
+					"build" : "matplotplusplus/source",
+					"childIndexes" : 
+					[
+						8,
+						9
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-matplotplusplus.source-Debug-48226e0e0d2900eb7955.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 4,
+					"source" : "matplotplusplus/source"
+				},
+				{
+					"build" : "matplotplusplus/source/3rd_party",
+					"jsonFile" : "directory-matplotplusplus.source.3rd_party-Debug-73dbb782b10e51849238.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 4,
+					"source" : "matplotplusplus/source/3rd_party",
+					"targetIndexes" : 
+					[
+						35
+					]
+				},
+				{
+					"build" : "matplotplusplus/source/matplot",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-matplotplusplus.source.matplot-Debug-a98c7a83362253e6af02.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 4,
+					"source" : "matplotplusplus/source/matplot",
+					"targetIndexes" : 
+					[
+						33
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "CMakeS24CS696_PS1_p5",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						34
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "googletest-distribution",
+					"parentIndex" : 0
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "gmock",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						29,
+						30
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "gtest",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						31,
+						32
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6,
+						7,
+						8,
+						9
+					],
+					"name" : "Matplot++",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						33,
+						35
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "CMakeS24CS696_PS1_p5::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CMakeS24CS696_PS1_p5-Debug-0f9b425ee71a43eeced1.json",
+					"name" : "CMakeS24CS696_PS1_p5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Continuous::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Continuous-Debug-95415d6ce3023c671f2b.json",
+					"name" : "Continuous",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousBuild::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousBuild-Debug-e6820281069ac973e21e.json",
+					"name" : "ContinuousBuild",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousConfigure::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousConfigure-Debug-7698944e0e9e760986b1.json",
+					"name" : "ContinuousConfigure",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousCoverage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousCoverage-Debug-599b92c41ff651764fe2.json",
+					"name" : "ContinuousCoverage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousMemCheck::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousMemCheck-Debug-abdec3da649302016621.json",
+					"name" : "ContinuousMemCheck",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousStart::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousStart-Debug-e33557a87083aaf5c37b.json",
+					"name" : "ContinuousStart",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousSubmit::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousSubmit-Debug-fe5672b6dc2c77c44403.json",
+					"name" : "ContinuousSubmit",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousTest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousTest-Debug-011c5359b9e15854c27a.json",
+					"name" : "ContinuousTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ContinuousUpdate::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ContinuousUpdate-Debug-53afba481c9f35a5ea3b.json",
+					"name" : "ContinuousUpdate",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Experimental::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Experimental-Debug-e3e844ddde654169bf86.json",
+					"name" : "Experimental",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalBuild::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalBuild-Debug-f214a387c4e7379d9acd.json",
+					"name" : "ExperimentalBuild",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalConfigure::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalConfigure-Debug-b8c31e36b0932d1586c2.json",
+					"name" : "ExperimentalConfigure",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalCoverage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalCoverage-Debug-d467589b3d20b9c6852e.json",
+					"name" : "ExperimentalCoverage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalMemCheck::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalMemCheck-Debug-1be905ef2ff47b1ac477.json",
+					"name" : "ExperimentalMemCheck",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalStart::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalStart-Debug-d044666dab87fcd55a5d.json",
+					"name" : "ExperimentalStart",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalSubmit::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalSubmit-Debug-d7aa611d317bf24cc238.json",
+					"name" : "ExperimentalSubmit",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalTest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalTest-Debug-15ba7d749247ac904a4d.json",
+					"name" : "ExperimentalTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ExperimentalUpdate::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ExperimentalUpdate-Debug-b86b63f8497945ac5503.json",
+					"name" : "ExperimentalUpdate",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Nightly::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Nightly-Debug-47c036f4612a58b1a256.json",
+					"name" : "Nightly",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyBuild::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyBuild-Debug-a795c11fd143a1c57574.json",
+					"name" : "NightlyBuild",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyConfigure::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyConfigure-Debug-55d617bd5093da8c209f.json",
+					"name" : "NightlyConfigure",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyCoverage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyCoverage-Debug-460ba0d6727acbe5a97c.json",
+					"name" : "NightlyCoverage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyMemCheck::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyMemCheck-Debug-38a46b316625b37c8d41.json",
+					"name" : "NightlyMemCheck",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyMemoryCheck::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyMemoryCheck-Debug-c1330258881f82452868.json",
+					"name" : "NightlyMemoryCheck",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyStart::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyStart-Debug-e6e1a2e321fce308653c.json",
+					"name" : "NightlyStart",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlySubmit::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlySubmit-Debug-7532a371191683b057dc.json",
+					"name" : "NightlySubmit",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyTest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyTest-Debug-ccfb462950a662996fdf.json",
+					"name" : "NightlyTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NightlyUpdate::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NightlyUpdate-Debug-0d46d34c3c08fb2158d5.json",
+					"name" : "NightlyUpdate",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "gmock::@9bb205edeb8367ae50f5",
+					"jsonFile" : "target-gmock-Debug-0ec04be420f445a327b2.json",
+					"name" : "gmock",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "gmock_main::@9bb205edeb8367ae50f5",
+					"jsonFile" : "target-gmock_main-Debug-06f7027d2a59c1d8e761.json",
+					"name" : "gmock_main",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "gtest::@405f3af846dabb1ba1ce",
+					"jsonFile" : "target-gtest-Debug-308bb156439bb3bbe8dc.json",
+					"name" : "gtest",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "gtest_main::@405f3af846dabb1ba1ce",
+					"jsonFile" : "target-gtest_main-Debug-a2a32e3a444a67380dac.json",
+					"name" : "gtest_main",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "matplot::@900000785becdfd3715c",
+					"jsonFile" : "target-matplot-Debug-c873ed9721ba82a462e3.json",
+					"name" : "matplot",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "my_test::@a44f0ac069e85531cdee",
+					"jsonFile" : "target-my_test-Debug-5958928772699df4bad4.json",
+					"name" : "my_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "nodesoup::@c12dc8f6f399c06ad5fb",
+					"jsonFile" : "target-nodesoup-Debug-feeddcf9e1e04b1f1c67.json",
+					"name" : "nodesoup",
+					"projectIndex" : 4
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug",
+		"source" : "C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

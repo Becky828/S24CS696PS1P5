@@ -14,6 +14,72 @@
 # EXTERNAL cache entries
 ########################
 
+//Path to a library.
+BLAS_Accelerate_LIBRARY:FILEPATH=BLAS_Accelerate_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_acml_LIBRARY:FILEPATH=BLAS_acml_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_acml_mp_LIBRARY:FILEPATH=BLAS_acml_mp_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_armpl_lp64_LIBRARY:FILEPATH=BLAS_armpl_lp64_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_blas_LIBRARY:FILEPATH=BLAS_blas_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_blis_LIBRARY:FILEPATH=BLAS_blis_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_complib_sgimath_LIBRARY:FILEPATH=BLAS_complib_sgimath_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_cxml_LIBRARY:FILEPATH=BLAS_cxml_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_dxml_LIBRARY:FILEPATH=BLAS_dxml_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_eml_LIBRARY:FILEPATH=BLAS_eml_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_essl_LIBRARY:FILEPATH=BLAS_essl_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_fjlapack_LIBRARY:FILEPATH=BLAS_fjlapack_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_flexiblas_LIBRARY:FILEPATH=BLAS_flexiblas_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_goto2_LIBRARY:FILEPATH=BLAS_goto2_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_mkl_intel_c_dll_LIBRARY:FILEPATH=BLAS_mkl_intel_c_dll_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_mkl_intel_lp64_dll_LIBRARY:FILEPATH=BLAS_mkl_intel_lp64_dll_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_mkl_rt_LIBRARY:FILEPATH=BLAS_mkl_rt_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_openblas_LIBRARY:FILEPATH=BLAS_openblas_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_scs_LIBRARY:FILEPATH=BLAS_scs_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_sgemm_LIBRARY:FILEPATH=BLAS_sgemm_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_sunperf_LIBRARY:FILEPATH=BLAS_sunperf_LIBRARY-NOTFOUND
+
+//Path to a library.
+BLAS_vecLib_LIBRARY:FILEPATH=BLAS_vecLib_LIBRARY-NOTFOUND
+
 //Builds the googlemock subproject
 BUILD_GMOCK:BOOL=ON
 
@@ -289,6 +355,49 @@ CTEST_SUBMIT_RETRY_DELAY:STRING=5
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Path to a library.
+FFTW_DOUBLE_LIB:FILEPATH=FFTW_DOUBLE_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_DOUBLE_OPENMP_LIB:FILEPATH=FFTW_DOUBLE_OPENMP_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_DOUBLE_THREADS_LIB:FILEPATH=FFTW_DOUBLE_THREADS_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_FLOAT_LIB:FILEPATH=FFTW_FLOAT_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_FLOAT_OPENMP_LIB:FILEPATH=FFTW_FLOAT_OPENMP_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_FLOAT_THREADS_LIB:FILEPATH=FFTW_FLOAT_THREADS_LIB-NOTFOUND
+
+//Path to a file.
+FFTW_INCLUDE_DIRS:PATH=FFTW_INCLUDE_DIRS-NOTFOUND
+
+//Path to a library.
+FFTW_LONGDOUBLE_LIB:FILEPATH=FFTW_LONGDOUBLE_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_LONGDOUBLE_OPENMP_LIB:FILEPATH=FFTW_LONGDOUBLE_OPENMP_LIB-NOTFOUND
+
+//Path to a library.
+FFTW_LONGDOUBLE_THREADS_LIB:FILEPATH=FFTW_LONGDOUBLE_THREADS_LIB-NOTFOUND
+
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
@@ -300,8 +409,63 @@ GTEST_HAS_ABSL:BOOL=OFF
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
 
+//Path to a file.
+JPEG_INCLUDE_DIR:PATH=JPEG_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+JPEG_LIBRARY_DEBUG:FILEPATH=JPEG_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+JPEG_LIBRARY_RELEASE:FILEPATH=JPEG_LIBRARY_RELEASE-NOTFOUND
+
 //Command to build the project
 MAKECOMMAND:STRING="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
+
+//Build examples
+MATPLOTPP_BUILD_EXAMPLES:BOOL=OFF
+
+//Compile target with the experimental OpenGL backend
+MATPLOTPP_BUILD_EXPERIMENTAL_OPENGL_BACKEND:BOOL=OFF
+
+//Bypass show() commands and save figures as .svg at destruction
+MATPLOTPP_BUILD_FOR_DOCUMENTATION_IMAGES:BOOL=OFF
+
+//Compile the high resolution maps for geoplots
+MATPLOTPP_BUILD_HIGH_RESOLUTION_WORLD_MAP:BOOL=ON
+
+//Build installer target
+MATPLOTPP_BUILD_INSTALLER:BOOL=OFF
+
+//Build package
+MATPLOTPP_BUILD_PACKAGE:BOOL=OFF
+
+//Build shared libraries
+MATPLOTPP_BUILD_SHARED_LIBS:BOOL=OFF
+
+//Build tests
+MATPLOTPP_BUILD_TESTS:BOOL=OFF
+
+//Add compiler flags to use exceptions.
+MATPLOTPP_BUILD_WITH_EXCEPTIONS:BOOL=ON
+
+//Accept utf-8 in MSVC by default.
+MATPLOTPP_BUILD_WITH_MSVC_HACKS:BOOL=ON
+
+//Use pedantic warnings. This is useful for developers because
+// many of these warnings will be in continuous integration anyway.
+MATPLOTPP_BUILD_WITH_PEDANTIC_WARNINGS:BOOL=ON
+
+//Use pedantic warnings.
+MATPLOTPP_BUILD_WITH_SANITIZERS:BOOL=ON
+
+//Accept utf-8 in MSVC by default.
+MATPLOTPP_BUILD_WITH_UTF8:BOOL=ON
+
+//Use system-provided CImg.h instead of bundled
+MATPLOTPP_WITH_SYSTEM_CIMG:BOOL=OFF
+
+//Use system-provided nodesoup instead of bundled
+MATPLOTPP_WITH_SYSTEM_NODESOUP:BOOL=OFF
 
 //Path to the memory checking command, used for memory error detection.
 MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
@@ -309,11 +473,50 @@ MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
 //File that contains suppressions for the memory checker
 MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
+//Value Computed by CMake
+Matplot++_BINARY_DIR:STATIC=C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/matplotplusplus
+
+//Value Computed by CMake
+Matplot++_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Matplot++_SOURCE_DIR:STATIC=C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/matplotplusplus
+
+OPENCV_FOUND:BOOL=FALSE
+
+OpenCV_CONFIG_PATH:FILEPATH=C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/matplotplusplus/cmake
+
+OpenCV_FOUND:BOOL=FALSE
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
+
 //Name of the computer/site where compile is being run
 SITE:STRING=DESKTOP-CFSNAEO
 
+//Path to a file.
+TIFF_INCLUDE_DIR:PATH=TIFF_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+TIFF_LIBRARY_DEBUG:FILEPATH=TIFF_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+TIFF_LIBRARY_RELEASE:FILEPATH=TIFF_LIBRARY_RELEASE-NOTFOUND
+
 //Check submodules during build
 UPDATE_SUBMODULES:BOOL=ON
+
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=ZLIB_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_RELEASE:FILEPATH=ZLIB_LIBRARY_RELEASE-NOTFOUND
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/build/x64-debug/external/googletest/googlemock
@@ -357,11 +560,60 @@ gtest_disable_pthreads:BOOL=OFF
 //Build gtest with internal symbols hidden in shared libraries.
 gtest_hide_internal_symbols:BOOL=OFF
 
+//The directory containing a CMake configuration file for tiff.
+tiff_DIR:PATH=tiff_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: BLAS_Accelerate_LIBRARY
+BLAS_Accelerate_LIBRARY-ADVANCED:INTERNAL=1
+//Have function sgemm_
+BLAS_WORKS:INTERNAL=
+//ADVANCED property for variable: BLAS_acml_LIBRARY
+BLAS_acml_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_acml_mp_LIBRARY
+BLAS_acml_mp_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_armpl_lp64_LIBRARY
+BLAS_armpl_lp64_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_blas_LIBRARY
+BLAS_blas_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_blis_LIBRARY
+BLAS_blis_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_complib_sgimath_LIBRARY
+BLAS_complib_sgimath_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_cxml_LIBRARY
+BLAS_cxml_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_dxml_LIBRARY
+BLAS_dxml_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_eml_LIBRARY
+BLAS_eml_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_essl_LIBRARY
+BLAS_essl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_fjlapack_LIBRARY
+BLAS_fjlapack_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_flexiblas_LIBRARY
+BLAS_flexiblas_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_goto2_LIBRARY
+BLAS_goto2_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_mkl_intel_c_dll_LIBRARY
+BLAS_mkl_intel_c_dll_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_mkl_intel_lp64_dll_LIBRARY
+BLAS_mkl_intel_lp64_dll_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_mkl_rt_LIBRARY
+BLAS_mkl_rt_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_openblas_LIBRARY
+BLAS_openblas_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_scs_LIBRARY
+BLAS_scs_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_sgemm_LIBRARY
+BLAS_sgemm_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_sunperf_LIBRARY
+BLAS_sunperf_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BLAS_vecLib_LIBRARY
+BLAS_vecLib_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -488,7 +740,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
@@ -534,6 +786,10 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test COMPILER_HAS_DEPRECATED
+COMPILER_HAS_DEPRECATED:INTERNAL=1
+//Test COMPILER_HAS_DEPRECATED_ATTR
+COMPILER_HAS_DEPRECATED_ATTR:INTERNAL=
 //ADVANCED property for variable: COVERAGE_COMMAND
 COVERAGE_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
@@ -544,20 +800,64 @@ CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
 CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DART_TESTING_TIMEOUT
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_DOUBLE_LIB
+FFTW_DOUBLE_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_DOUBLE_OPENMP_LIB
+FFTW_DOUBLE_OPENMP_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_DOUBLE_THREADS_LIB
+FFTW_DOUBLE_THREADS_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_FLOAT_LIB
+FFTW_FLOAT_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_FLOAT_OPENMP_LIB
+FFTW_FLOAT_OPENMP_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_FLOAT_THREADS_LIB
+FFTW_FLOAT_THREADS_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_INCLUDE_DIRS
+FFTW_INCLUDE_DIRS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_LONGDOUBLE_LIB
+FFTW_LONGDOUBLE_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_LONGDOUBLE_OPENMP_LIB
+FFTW_LONGDOUBLE_OPENMP_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FFTW_LONGDOUBLE_THREADS_LIB
+FFTW_LONGDOUBLE_THREADS_LIB-ADVANCED:INTERNAL=1
 //Details about finding Python3
 FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Python311/python.exe][cfound components: Interpreter ][v3.11.3()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//Have symbol __fbufsize
+HAVE_FBUFSIZE:INTERNAL=
+//ADVANCED property for variable: JPEG_INCLUDE_DIR
+JPEG_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: JPEG_LIBRARY_DEBUG
+JPEG_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: JPEG_LIBRARY_RELEASE
+JPEG_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_COMMAND
 MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
 MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SITE
 SITE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: TIFF_INCLUDE_DIR
+TIFF_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: TIFF_LIBRARY_DEBUG
+TIFF_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: TIFF_LIBRARY_RELEASE
+TIFF_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_DEBUG
+ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
+ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Users/Owner/source/repos/S24CS696hw/S24CS696PS1P5/CMakeS24CS696_PS1_p5/out/install/x64-debug
 //Compiler reason failure
