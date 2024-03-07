@@ -16,6 +16,33 @@ bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>
 	return a.second > b.second;
 }
 
+
+//Function to gather sink nodes
+std::vector<int> sinkFinder(std::set<int> nodes, std::map<int, int> o, std::map<int, int> i) {
+
+	std::vector<int> sinks;
+
+
+	for (int node : nodes) {
+
+		for (int node : nodes) {
+
+			if (i.contains(node) && !o.contains(node)) {
+
+				int cnt = std::count(sinks.begin(), sinks.end(), node);
+
+				// Check if the target value was found 
+				if (cnt == 0) {
+					sinks.push_back(node);
+				}
+			}
+		}
+	}
+
+	return sinks;
+
+}
+
 // Function to sort the map according 
 // to value in a (key-value) pairs 
 std::vector<std::pair<int, double> > sort(std::map<int, double> M)
@@ -52,7 +79,7 @@ void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 
 //Gets the ids of the top 5 pagerank nodes
 std::vector<int> topFiveIDGetter(std::vector<std::pair<int, double> >  V) {
-	
+
 	// Initialize the counter
 	int count = 0;
 
@@ -98,16 +125,18 @@ void fileCloser(std::fstream& f) {
 	std::cout << "\n";
 }
 
+
+
 //Writes each node and its pagerank to a text file line line by line in decreasing order of pagerank
 //void pageRankWriter(std::map<int, double>   V) {
 
 void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
-	char filename[] = "pagerank_out.txt";	
+	char filename[] = "pagerank_out.txt";
 	std::fstream file = fileLoader(filename);
-	
+
 	for (std::pair<int, double> v : V) {
-		
+
 		file << v.second << ' ' << v.first << std::endl;
 	}
 
@@ -115,7 +144,7 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 	fileCloser(file);
 }
 
-void topFivePageRankWriter(std::vector<double> V1, std::vector<double> V2, std::vector<double> V3, 
+void topFivePageRankWriter(std::vector<double> V1, std::vector<double> V2, std::vector<double> V3,
 	std::vector<double> V4, std::vector<double> V5) {
 
 	char filename_top_first[] = "top_first_out.txt";
@@ -170,7 +199,11 @@ int main() {
 	// ifstream file;
 		// file.open("web-Stanford.txt");
 
-	std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
+	//std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
+
+	std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
+
+
 	if (!file.is_open()) {
 		std::cerr << "Unable to open file" << std::endl;
 		return 1;
@@ -187,136 +220,172 @@ int main() {
 		}
 	}
 
-	std::map<int, std::vector<int> > edges;
+	std::map<int, std::vector<int>> edges;
 	std::map<int, double> pagerank, previous_pagerank;
-	std::map<int, double> plotted_pagerank, plotted_previous_pagerank;
+	std::map<int, double> top_five_pagerank, top_five_previous_pagerank;
 	std::set<int> nodes;
-	std::map<int, int> out_degree;
+	std::map<int, int> out_degree, in_degree;
 
 	int from_id, to_id;
 	while (file >> from_id >> to_id) {
 		// Process the edge here
 		edges[to_id].push_back(from_id);
 		out_degree[from_id]++;
+		in_degree[to_id]++;
 		nodes.insert(from_id);
 		nodes.insert(to_id);
 	}
 
+
 	file.close();
 
-	double epsilon = 0.15, one_minus_epsilon = 1 - epsilon, avg_error = 0.00001;
-	int n = nodes.size();
+	std::vector<int> sink_nodes = sinkFinder(nodes, out_degree, in_degree);
 
-	int num_iterations = (int)(std::log(avg_error) / std::log(one_minus_epsilon));
-	double avg_epsilon = epsilon / n;
-	// Initialize pagerank
-	for (int node : nodes) {
-		pagerank[node] = 1.0 / n;
-	}
-	//pageRankWriter(pagerank);
 
-	//A
-	// Implement the pagerank algorithm here
-	for (int t = 1; t < num_iterations+1; t++)
-	{
-		previous_pagerank = pagerank;
-		for (int node : nodes)
-		{
-			double sum = 0;
-			for (int from_node : edges[node])
-			{
-				sum += previous_pagerank[from_node] / out_degree[from_node];
+	//std::map<int, int> ::iterator it4;
+
+	for (int s : sink_nodes) {
+		out_degree[s] += (nodes.size() - 1);
+		
+		for (auto i = in_degree.begin(); i != in_degree.end(); i++){
+
+		//for (int node : nodes) {
+			if (i->first != s) {
+				in_degree[s]++;
 			}
-			pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
 		}
+		//for (it4 = out_degree.begin(); it4 != out_degree.end(); it4++) {
 
-	}
-
-	std::vector<std::pair<int, double> >   sorted = sort(pagerank);
-
-	// Print the pagerank of the top 1000 nodes
-	topThousandPrinter(sorted);
-
-
-	// Output all the nodes and their pageranks in a file
-	pageRankWriter(sorted);
-
-
-	//B
-	//Top 5 pagerank tracker here
-	// 	
-
-	// Initialize the vectors for file output
-	std::vector<double> y_1;
-	std::vector<double> y_2;
-	std::vector<double> y_3;
-	std::vector<double> y_4;
-	std::vector<double> y_5;
-
-	std::vector<int> topFiveIds = topFiveIDGetter(sorted);
-
-	// Initialize plotted pagerank
-	for (int node : nodes) {
-		plotted_pagerank[node] = 1.0 / n;
-	}
-
-	std::map<int, double> ::iterator it3;
-
-	// Plot the latest pageranks of the top 5 nodes
-
-	int top_first = topFiveIds[0];
-	int top_second = topFiveIds[1];
-	int top_third = topFiveIds[2];
-	int top_fourth = topFiveIds[3];
-	int top_fifth = topFiveIds[4];
-
-	std::vector<int> t_index;	
-
-	for (int t = 1; t < num_iterations+1; t++)
-	{
-		t_index.push_back(t);
-
-		plotted_previous_pagerank = plotted_pagerank;
-
-		for (it3 = plotted_previous_pagerank.begin(); it3 != plotted_previous_pagerank.end(); it3++) {
-
-			int current_node = it3->first;
-			double current_pagerank = it3->second;
+			//int current_node = it4->first;
 
 			// Count the occurrences of the target value in the 
 			// vector 
-			int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), current_node);
+			//int cnt = std::count(sink_nodes.begin(), sink_nodes.end(), current_node);
 
 			// Check if the target value was found 
-			if (cnt > 0) {
-				
-				if (current_node == top_first) {
-					y_1.push_back(current_pagerank);
+			/*if (cnt > 0) {
+				out_degree[current_node] += (nodes.size() - 1);
+				for (int node : nodes) {
+					if (node != current_node) {
+						in_degree[node]++;
+					}
 				}
-				else if (current_node == top_second) {
-					y_2.push_back(current_pagerank);
-				}
-				else if (current_node == top_third) {
-					y_3.push_back(current_pagerank);
-				}
-				else if (current_node == top_fourth) {
-					y_4.push_back(current_pagerank);
-				}
-				else if (current_node == top_fifth) {
-					y_5.push_back(current_pagerank);
-				}				
-								
-			}
+			}*/
+			//}
+
+		double epsilon = 0.15, one_minus_epsilon = 1 - epsilon, avg_error = 0.00001;
+		int n = nodes.size();
+
+		int num_iterations = (int)(std::log(avg_error) / std::log(one_minus_epsilon));
+		double avg_epsilon = epsilon / n;
+		// Initialize pagerank
+		for (int node : nodes) {
+			pagerank[node] = 1.0 / n;
 		}
+		//pageRankWriter(pagerank);
+
+		//A
+		// Implement the pagerank algorithm here
+		for (int t = 1; t < num_iterations + 1; t++)
+		{
+			previous_pagerank = pagerank;
+			for (int node : nodes)
+			{
+				double sum = 0;
+				for (int from_node : edges[node])
+				{
+					sum += previous_pagerank[from_node] / out_degree[from_node];
+				}
+				pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
+			}
+
+		}
+
+		std::vector<std::pair<int, double> >  sorted = sort(pagerank);
+
+		// Print the pagerank of the top 1000 nodes
+		topThousandPrinter(sorted);
+
+
+		// Output all the nodes and their pageranks in a file
+		pageRankWriter(sorted);
+
+
+		//B
+		//Top 5 pagerank tracker here
+		// 	
+
+		// Initialize the vectors for file output
+		std::vector<double> y_1;
+		std::vector<double> y_2;
+		std::vector<double> y_3;
+		std::vector<double> y_4;
+		std::vector<double> y_5;
+
+		std::vector<int> topFiveIds = topFiveIDGetter(sorted);
+
+		// Initialize plotted pagerank
+		for (int node : nodes) {
+			top_five_pagerank[node] = 1.0 / n;
+		}
+
+		std::map<int, double> ::iterator it3;
+
+		// Plot the latest pageranks of the top 5 nodes
+
+		int top_first = topFiveIds[0];
+		int top_second = topFiveIds[1];
+		int top_third = topFiveIds[2];
+		int top_fourth = topFiveIds[3];
+		int top_fifth = topFiveIds[4];
+
+		std::vector<int> t_index;
+
+		for (int t = 1; t < num_iterations + 1; t++)
+		{
+			t_index.push_back(t);
+
+			top_five_previous_pagerank = top_five_pagerank;
+
+			for (it3 = top_five_previous_pagerank.begin(); it3 != top_five_previous_pagerank.end(); it3++) {
+
+				int current_node = it3->first;
+				double current_pagerank = it3->second;
+
+				// Count the occurrences of the target value in the 
+				// vector 
+				int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), current_node);
+
+				// Check if the target value was found 
+				if (cnt > 0) {
+
+					if (current_node == top_first) {
+						y_1.push_back(current_pagerank);
+					}
+					else if (current_node == top_second) {
+						y_2.push_back(current_pagerank);
+					}
+					else if (current_node == top_third) {
+						y_3.push_back(current_pagerank);
+					}
+					else if (current_node == top_fourth) {
+						y_4.push_back(current_pagerank);
+					}
+					else if (current_node == top_fifth) {
+						y_5.push_back(current_pagerank);
+					}
+
+				}
+			}
 
 			for (int node : nodes)
 			{
 				double sum = 0;
 				for (int from_node : edges[node])
 				{
-					sum += plotted_previous_pagerank[from_node] / out_degree[from_node];
+					sum += top_five_previous_pagerank[from_node] / out_degree[from_node];
 				}
-				plotted_pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
+				top_five_pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
 			}
 
 		}
@@ -332,3 +401,4 @@ int main() {
 		topFivePageRankWriter(y_1, y_2, y_3, y_4, y_5);
 		return 0;
 	}
+}

@@ -51,3 +51,7 @@
 //https://stackoverflow.com/questions/75631174/how-to-comment-out-a-line-of-code-in-visual-studio-2022
 //https://stackoverflow.com/questions/5755942/how-do-you-auto-format-code-in-visual-studio
 //https://www.geeksforgeeks.org/passing-vector-function-cpp/
+//https://stackoverflow.com/questions/64146476/matching-exact-string-or-word-in-vscode
+//https://www.geeksforgeeks.org/map-count-function-in-c-stl/
+//https://en.cppreference.com/w/cpp/container/map/contains
+//https://www.geeksforgeeks.org/traversing-a-map-or-unordered_map-in-cpp-stl/
