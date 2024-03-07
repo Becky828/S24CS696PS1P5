@@ -38,6 +38,8 @@ std::vector<std::pair<int, double> > sort(std::map<int, double> M)
 
 // Print the first thousand entries of the multimap
 void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
+
+	//Initialize the counter
 	int count = 0;
 	for (auto& it : V) {
 		++count;
@@ -50,6 +52,8 @@ void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 
 //Gets the ids of the top 5 pagerank nodes
 std::vector<int> topFiveIDGetter(std::vector<std::pair<int, double> >  V) {
+	
+	// Initialize the counter
 	int count = 0;
 
 	// Declare vector of pairs 
@@ -111,18 +115,52 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 	fileCloser(file);
 }
 
-void topFivePageRankWriter(std::vector<std::pair<int, double> > V) {
+void topFivePageRankWriter(std::vector<double> V1, std::vector<double> V2, std::vector<double> V3, 
+	std::vector<double> V4, std::vector<double> V5) {
 
-	char filename[] = "pagerank_out.txt";
-	std::fstream file = fileLoader(filename);
+	char filename_top_first[] = "top_first_out.txt";
+	char filename_top_second[] = "top_second_out.txt";
+	char filename_top_third[] = "top_third_out.txt";
+	char filename_top_fourth[] = "top_fourth_out.txt";
+	char filename_top_fifth[] = "top_fifth_out.txt";
 
-	for (std::pair<int, double> v : V) {
+	std::fstream file1 = fileLoader(filename_top_first);
+	std::fstream file2 = fileLoader(filename_top_second);
+	std::fstream file3 = fileLoader(filename_top_third);
+	std::fstream file4 = fileLoader(filename_top_fourth);
+	std::fstream file5 = fileLoader(filename_top_fifth);
 
-		file << v.second << ' ' << v.first << std::endl;
+	for (double v1 : V1) {
+
+		file1 << v1 << std::endl;
+	}
+
+	for (double v2 : V2) {
+
+		file2 << v2 << std::endl;
+	}
+
+	for (double v3 : V3) {
+
+		file3 << v3 << std::endl;
+	}
+
+	for (double v4 : V4) {
+
+		file4 << v4 << std::endl;
+	}
+
+	for (double v5 : V5) {
+
+		file5 << v5 << std::endl;
 	}
 
 	//file.close();
-	fileCloser(file);
+	fileCloser(file1);
+	fileCloser(file2);
+	fileCloser(file3);
+	fileCloser(file4);
+	fileCloser(file5);
 }
 
 
@@ -179,7 +217,7 @@ int main() {
 
 	//A
 	// Implement the pagerank algorithm here
-	for (int t = 1; t < num_iterations; t++)
+	for (int t = 1; t < num_iterations+1; t++)
 	{
 		previous_pagerank = pagerank;
 		for (int node : nodes)
@@ -210,13 +248,9 @@ int main() {
 
 	// Initialize the vectors for file output
 	std::vector<double> y_1;
-
 	std::vector<double> y_2;
-
 	std::vector<double> y_3;
-
 	std::vector<double> y_4;
-
 	std::vector<double> y_5;
 
 	std::vector<int> topFiveIds = topFiveIDGetter(sorted);
@@ -236,15 +270,9 @@ int main() {
 	int top_fourth = topFiveIds[3];
 	int top_fifth = topFiveIds[4];
 
-	std::vector<int> t_index;
+	std::vector<int> t_index;	
 
-	/*int t_first = topFive[0].first;
-	int t_second = topFive[1].first;
-	int t_third = topFive[2].first;
-	int t_fourth = topFive[3].first;
-	int t_fifth = topFive[4].first;*/
-
-	for (int t = 1; t < num_iterations; t++)
+	for (int t = 1; t < num_iterations+1; t++)
 	{
 		t_index.push_back(t);
 
@@ -254,8 +282,6 @@ int main() {
 
 			int current_node = it3->first;
 			double current_pagerank = it3->second;
-
-			//double target = 3.5;
 
 			// Count the occurrences of the target value in the 
 			// vector 
@@ -267,7 +293,7 @@ int main() {
 				if (current_node == top_first) {
 					y_1.push_back(current_pagerank);
 				}
-				/*else if (current_node == top_second) {
+				else if (current_node == top_second) {
 					y_2.push_back(current_pagerank);
 				}
 				else if (current_node == top_third) {
@@ -278,8 +304,7 @@ int main() {
 				}
 				else if (current_node == top_fifth) {
 					y_5.push_back(current_pagerank);
-				}	*/
-				
+				}				
 								
 			}
 		}
@@ -304,6 +329,6 @@ int main() {
 		plot(x_5, y_5)->line_width(2).color("black");*/
 
 		//show();
-
+		topFivePageRankWriter(y_1, y_2, y_3, y_4, y_5);
 		return 0;
 	}
