@@ -40,3 +40,14 @@
 //https://cplusplus.com/reference/vector/vector/at/
 //https://cplusplus.com/reference/vector/vector/push_back/
 //https://www.geeksforgeeks.org/check-if-vector-contains-given-element-in-cpp/
+//https://www.reddit.com/r/cpp_questions/comments/vvvyrj/matplotlibcpp_install_in_visual_studio/
+//https://github.com/lava/matplotlib-cpp#installation
+//https://stackoverflow.com/questions/66507618/running-python-matplotlibcpp-in-visual-studio-2019
+//https://github.com/lava/matplotlib-cpp
+//https://stackoverflow.com/questions/66972894/how-to-include-python-directory-to-cmakelist-txt-file
+//https://stackoverflow.com/questions/71258721/project-properties-windows-blank-in-visual-studio-2022-community-17-1-0
+//https://github.com/python/cpython/tree/main/Include
+//https://github.com/lava/matplotlib-cpp/blob/master/README.md
+//https://stackoverflow.com/questions/75631174/how-to-comment-out-a-line-of-code-in-visual-studio-2022
+//https://stackoverflow.com/questions/5755942/how-do-you-auto-format-code-in-visual-studio
+//https://www.geeksforgeeks.org/passing-vector-function-cpp/

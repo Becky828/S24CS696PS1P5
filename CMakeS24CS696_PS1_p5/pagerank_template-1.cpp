@@ -48,28 +48,7 @@ void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 	}
 }
 
-//Gets the top 5 pagerank nodes
-std::vector<std::pair<int, double>> topFiveGetter(std::vector<std::pair<int, double> >  V) {
-	int count = 0;
-
-	// Declare vector of pairs 
-	std::vector<std::pair<int, double> > A;
-
-	// copy key-value pairs from the map to the vector
-	std::vector<std::pair<int, double> >::iterator iter = V.begin();
-	for (iter; iter != V.end(); iter++)
-	{
-		++count;
-		if (count > 5) {
-			break;
-		}
-		A.push_back(std::make_pair(iter->first, iter->second));
-	}
-	return A;
-}
-
-
-//Gets the top 5 pagerank nodes
+//Gets the ids of the top 5 pagerank nodes
 std::vector<int> topFiveIDGetter(std::vector<std::pair<int, double> >  V) {
 	int count = 0;
 
@@ -120,38 +99,30 @@ void fileCloser(std::fstream& f) {
 
 void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
+	char filename[] = "pagerank_out.txt";	
+	std::fstream file = fileLoader(filename);
+	
+	for (std::pair<int, double> v : V) {
+		
+		file << v.second << ' ' << v.first << std::endl;
+	}
+
+	//file.close();
+	fileCloser(file);
+}
+
+void topFivePageRankWriter(std::vector<std::pair<int, double> > V) {
+
 	char filename[] = "pagerank_out.txt";
-	//std::fstream currentFile;
-
-	//currentFile = fileLoader(filename);
-	std::fstream file(filename);
-
-	// If file does not exist, Create new file
-	if (!file.is_open())
-	{
-		file.open(filename, std::fstream::in | std::fstream::out | std::fstream::trunc);
-	}
-
-	//If file exists, clear file
-	else
-	{
-		file.open(filename, std::ofstream::out | std::ofstream::trunc);
-	}
-
-	int count = 0;
+	std::fstream file = fileLoader(filename);
 
 	for (std::pair<int, double> v : V) {
-		//++count;
-		//if (count > 10) {
-			//break;
-		//}
-		file << v.second << ' ' << v.first << std::endl;
 
+		file << v.second << ' ' << v.first << std::endl;
 	}
 
-	file.close();
-	//fileCloser(currentFile);
-
+	//file.close();
+	fileCloser(file);
 }
 
 
@@ -237,23 +208,17 @@ int main() {
 	//Top 5 pagerank tracker here
 	// 	
 
-	// Initialize the vectors for plotting
-	//std::vector<int> x_1;
+	// Initialize the vectors for file output
 	std::vector<double> y_1;
 
-	//std::vector<int> x_2;
 	std::vector<double> y_2;
 
-	//std::vector<int> x_3;
 	std::vector<double> y_3;
 
-	//std::vector<int> x_4;
 	std::vector<double> y_4;
 
-	//std::vector<int> x_5;
 	std::vector<double> y_5;
 
-	std::vector<std::pair<int, double>> topFive = topFiveGetter(sorted);
 	std::vector<int> topFiveIds = topFiveIDGetter(sorted);
 
 	// Initialize plotted pagerank
@@ -265,11 +230,13 @@ int main() {
 
 	// Plot the latest pageranks of the top 5 nodes
 
-	int t_first = topFiveIds[0];
-	int t_second = topFiveIds[1];
-	int t_third = topFiveIds[2];
-	int t_fourth = topFiveIds[3];
-	int t_fifth = topFiveIds[4];
+	int top_first = topFiveIds[0];
+	int top_second = topFiveIds[1];
+	int top_third = topFiveIds[2];
+	int top_fourth = topFiveIds[3];
+	int top_fifth = topFiveIds[4];
+
+	std::vector<int> t_index;
 
 	/*int t_first = topFive[0].first;
 	int t_second = topFive[1].first;
@@ -279,6 +246,8 @@ int main() {
 
 	for (int t = 1; t < num_iterations; t++)
 	{
+		t_index.push_back(t);
+
 		plotted_previous_pagerank = plotted_pagerank;
 
 		for (it3 = plotted_previous_pagerank.begin(); it3 != plotted_previous_pagerank.end(); it3++) {
@@ -286,38 +255,34 @@ int main() {
 			int current_node = it3->first;
 			double current_pagerank = it3->second;
 
-			double target = 3.5;
+			//double target = 3.5;
 
 			// Count the occurrences of the target value in the 
 			// vector 
-			int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), target);
+			int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), current_node);
 
 			// Check if the target value was found 
 			if (cnt > 0) {
-				//cout << "Element found in vector.\n";
-			//}
-
-			//if (std::find(topFive.begin(), topFive.end(), *it3) != topFive.end()) {
-
-				if(current_node == t_first) {
+				
+				if (current_node == top_first) {
 					y_1.push_back(current_pagerank);
 				}
-				/*else if (current_node == t_second) {
+				/*else if (current_node == top_second) {
 					y_2.push_back(current_pagerank);
 				}
-				else if (current_node == t_third) {
+				else if (current_node == top_third) {
 					y_3.push_back(current_pagerank);
 				}
-				else if (current_node == t_fourth) {
+				else if (current_node == top_fourth) {
 					y_4.push_back(current_pagerank);
 				}
-				else if (current_node == t_fifth) {
+				else if (current_node == top_fifth) {
 					y_5.push_back(current_pagerank);
 				}	*/
+				
 								
 			}
 		}
-
 
 			for (int node : nodes)
 			{
@@ -331,8 +296,8 @@ int main() {
 
 		}
 
-		//plot(x_1, y_1)->line_width(2).color("red");
-		
+		//plot(t_index, y_1)->line_width(2).color("red");
+		//plot(t_index, y_1)->color({ 0.f, 0.7f, 0.9f });
 		/*plot(x_2, y_2)->line_width(2).color("blue");
 		plot(x_3, y_3)->line_width(2).color("green");
 		plot(x_4, y_4)->line_width(2).color("yellow");
