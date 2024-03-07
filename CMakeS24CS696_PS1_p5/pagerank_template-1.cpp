@@ -218,19 +218,19 @@ int main() {
 	// 	
 
 	// Initialize the vectors for plotting
-	std::vector<int> x_1;
+	//std::vector<int> x_1;
 	std::vector<double> y_1;
 
-	std::vector<int> x_2;
+	//std::vector<int> x_2;
 	std::vector<double> y_2;
 
-	std::vector<int> x_3;
+	//std::vector<int> x_3;
 	std::vector<double> y_3;
 
-	std::vector<int> x_4;
+	//std::vector<int> x_4;
 	std::vector<double> y_4;
 
-	std::vector<int> x_5;
+	//std::vector<int> x_5;
 	std::vector<double> y_5;
 
 	std::vector<std::pair<int, double>> topFive = topFiveGetter(sorted);
@@ -261,31 +261,21 @@ int main() {
 			if (std::find(topFive.begin(), topFive.end(), *it3) != topFive.end()) {
 
 				if(current_node == t_first) {
-					x_1.at(t) = current_node;
-					y_1.at(t) = current_pagerank;
+					y_1.push_back(current_pagerank);
 				}
-				/*
-				else if (current_node == t_second) {
-					x_2.at(t) = current_node;
-					y_2.at(t) = current_pagerank;
+				/*else if (current_node == t_second) {
+					y_2.push_back(current_pagerank);
 				}
 				else if (current_node == t_third) {
-					x_3.at(t) = current_node;
-					y_3.at(t) = current_pagerank;
+					y_3.push_back(current_pagerank);
 				}
 				else if (current_node == t_fourth) {
-					x_4.at(t) = current_node;
-					y_4.at(t) = current_pagerank;
+					y_4.push_back(current_pagerank);
 				}
 				else if (current_node == t_fifth) {
-					x_5.at(t) = current_node;
-					y_5.at(t) = current_pagerank;
-				}*/
-
-				//x.at(t) = it3->first;
-				//int x = it3->first;
-				//double y = it3->second;
-				//plot(x, y);
+					y_5.push_back(current_pagerank);
+				}	*/
+								
 			}
 		}
 
@@ -303,10 +293,11 @@ int main() {
 		}
 
 		//plot(x_1, y_1)->line_width(2).color("red");
-		//plot(x_2, y_2)->line_width(2).color("blue");
-		//plot(x_3, y_3)->line_width(2).color("green");
-		//plot(x_4, y_4)->line_width(2).color("yellow");
-		//plot(x_5, y_5)->line_width(2).color("black");
+		
+		/*plot(x_2, y_2)->line_width(2).color("blue");
+		plot(x_3, y_3)->line_width(2).color("green");
+		plot(x_4, y_4)->line_width(2).color("yellow");
+		plot(x_5, y_5)->line_width(2).color("black");*/
 
 		//show();
 

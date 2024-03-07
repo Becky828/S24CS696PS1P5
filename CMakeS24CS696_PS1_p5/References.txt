@@ -39,3 +39,4 @@
 //https://alandefreitas.github.io/matplotplusplus/plot-types/line-plots/line-plot/
 //https://cplusplus.com/reference/vector/vector/at/
 //https://cplusplus.com/reference/vector/vector/push_back/
+//https://www.geeksforgeeks.org/check-if-vector-contains-given-element-in-cpp/
