@@ -30,3 +30,12 @@
 //https://github.com/python/cpython/blob/main/Include/Python.h
 //https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-vs?pivots=shell-bash
 //https://github.com/alandefreitas/matplotplusplus?tab=readme-ov-file
+//https://www.quora.com/How-do-I-use-C++-STL-to-check-if-a-pair-exists-in-the-vector-of-pairs
+//https://www.geeksforgeeks.org/iterators-c-stl/
+//https://www.w3schools.com/cpp/cpp_switch.asp
+//https://en.cppreference.com/w/cpp/utility/pair
+//https://www.quora.com/How-do-I-use-C++-STL-to-check-if-a-pair-exists-in-the-vector-of-pairs
+//https://matplotlib-cpp.readthedocs.io/en/latest/examples.html#minimal-working-example
+//https://alandefreitas.github.io/matplotplusplus/plot-types/line-plots/line-plot/
+//https://cplusplus.com/reference/vector/vector/at/
+//https://cplusplus.com/reference/vector/vector/push_back/

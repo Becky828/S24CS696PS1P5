@@ -120,7 +120,7 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 	int count = 0;
 
-	for (std::pair<int, double>  v : V) {
+	for (std::pair<int, double> v : V) {
 		//++count;
 		//if (count > 10) {
 			//break;
@@ -128,7 +128,7 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 		file << v.second << ' ' << v.first << std::endl;
 
 	}
-		
+
 	file.close();
 	//fileCloser(currentFile);
 
@@ -136,8 +136,10 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 
 int main() {
+	using namespace matplot;
+
 	// ifstream file;
-	// file.open("web-Stanford.txt");
+		// file.open("web-Stanford.txt");
 
 	std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
 	if (!file.is_open()) {
@@ -159,7 +161,6 @@ int main() {
 	std::map<int, std::vector<int> > edges;
 	std::map<int, double> pagerank, previous_pagerank;
 	std::map<int, double> plotted_pagerank, plotted_previous_pagerank;
-
 	std::set<int> nodes;
 	std::map<int, int> out_degree;
 
@@ -183,10 +184,7 @@ int main() {
 	for (int node : nodes) {
 		pagerank[node] = 1.0 / n;
 	}
-
-
 	//pageRankWriter(pagerank);
-
 
 	//A
 	// Implement the pagerank algorithm here
@@ -214,11 +212,103 @@ int main() {
 	// Output all the nodes and their pageranks in a file
 	pageRankWriter(sorted);
 
-	
+
 	//B
 	//Top 5 pagerank tracker here
-	// 
-	topFiveGetter(sorted);
+	// 	
 
-	return 0;
-}
+	// Initialize the vectors for plotting
+	std::vector<int> x_1;
+	std::vector<double> y_1;
+
+	std::vector<int> x_2;
+	std::vector<double> y_2;
+
+	std::vector<int> x_3;
+	std::vector<double> y_3;
+
+	std::vector<int> x_4;
+	std::vector<double> y_4;
+
+	std::vector<int> x_5;
+	std::vector<double> y_5;
+
+	std::vector<std::pair<int, double>> topFive = topFiveGetter(sorted);
+
+	// Initialize plotted pagerank
+	for (int node : nodes) {
+		plotted_pagerank[node] = 1.0 / n;
+	}
+
+	std::map<int, double> ::iterator it3;
+
+	// Plot the latest pageranks of the top 5 nodes
+	int t_first = topFive[0].first;
+	int t_second = topFive[1].first;
+	int t_third = topFive[2].first;
+	int t_fourth = topFive[3].first;
+	int t_fifth = topFive[4].first;
+
+	for (int t = 1; t < num_iterations; t++)
+	{
+		plotted_previous_pagerank = plotted_pagerank;
+
+		for (it3 = plotted_previous_pagerank.begin(); it3 != plotted_previous_pagerank.end(); it3++) {
+
+			int current_node = it3->first;
+			double current_pagerank = it3->second;
+
+			if (std::find(topFive.begin(), topFive.end(), *it3) != topFive.end()) {
+
+				if(current_node == t_first) {
+					x_1.at(t) = current_node;
+					y_1.at(t) = current_pagerank;
+				}
+				/*
+				else if (current_node == t_second) {
+					x_2.at(t) = current_node;
+					y_2.at(t) = current_pagerank;
+				}
+				else if (current_node == t_third) {
+					x_3.at(t) = current_node;
+					y_3.at(t) = current_pagerank;
+				}
+				else if (current_node == t_fourth) {
+					x_4.at(t) = current_node;
+					y_4.at(t) = current_pagerank;
+				}
+				else if (current_node == t_fifth) {
+					x_5.at(t) = current_node;
+					y_5.at(t) = current_pagerank;
+				}*/
+
+				//x.at(t) = it3->first;
+				//int x = it3->first;
+				//double y = it3->second;
+				//plot(x, y);
+			}
+		}
+
+
+			for (int node : nodes)
+			{
+				double sum = 0;
+				for (int from_node : edges[node])
+				{
+					sum += plotted_previous_pagerank[from_node] / out_degree[from_node];
+				}
+				plotted_pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
+			}
+
+		}
+
+		//plot(x_1, y_1)->line_width(2).color("red");
+		//plot(x_2, y_2)->line_width(2).color("blue");
+		//plot(x_3, y_3)->line_width(2).color("green");
+		//plot(x_4, y_4)->line_width(2).color("yellow");
+		//plot(x_5, y_5)->line_width(2).color("black");
+
+		//show();
+
+		return 0;
+	}
