@@ -68,6 +68,26 @@ std::vector<std::pair<int, double>> topFiveGetter(std::vector<std::pair<int, dou
 	return A;
 }
 
+
+//Gets the top 5 pagerank nodes
+std::vector<int> topFiveIDGetter(std::vector<std::pair<int, double> >  V) {
+	int count = 0;
+
+	// Declare vector of pairs 
+	std::vector<int>  B;
+
+	// copy key-value pairs from the map to the vector
+	std::vector<std::pair<int, double> >::iterator iter = V.begin();
+	for (iter; iter != V.end(); iter++)
+	{
+		++count;
+		if (count > 5) {
+			break;
+		}
+		B.push_back(iter->first);
+	}
+	return B;
+}
 // Function to load file
 std::fstream fileLoader(char fn[]) {
 
@@ -234,6 +254,7 @@ int main() {
 	std::vector<double> y_5;
 
 	std::vector<std::pair<int, double>> topFive = topFiveGetter(sorted);
+	std::vector<int> topFiveIds = topFiveIDGetter(sorted);
 
 	// Initialize plotted pagerank
 	for (int node : nodes) {
@@ -243,11 +264,18 @@ int main() {
 	std::map<int, double> ::iterator it3;
 
 	// Plot the latest pageranks of the top 5 nodes
-	int t_first = topFive[0].first;
+
+	int t_first = topFiveIds[0];
+	int t_second = topFiveIds[1];
+	int t_third = topFiveIds[2];
+	int t_fourth = topFiveIds[3];
+	int t_fifth = topFiveIds[4];
+
+	/*int t_first = topFive[0].first;
 	int t_second = topFive[1].first;
 	int t_third = topFive[2].first;
 	int t_fourth = topFive[3].first;
-	int t_fifth = topFive[4].first;
+	int t_fifth = topFive[4].first;*/
 
 	for (int t = 1; t < num_iterations; t++)
 	{
@@ -258,7 +286,18 @@ int main() {
 			int current_node = it3->first;
 			double current_pagerank = it3->second;
 
-			if (std::find(topFive.begin(), topFive.end(), *it3) != topFive.end()) {
+			double target = 3.5;
+
+			// Count the occurrences of the target value in the 
+			// vector 
+			int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), target);
+
+			// Check if the target value was found 
+			if (cnt > 0) {
+				//cout << "Element found in vector.\n";
+			//}
+
+			//if (std::find(topFive.begin(), topFive.end(), *it3) != topFive.end()) {
 
 				if(current_node == t_first) {
 					y_1.push_back(current_pagerank);
