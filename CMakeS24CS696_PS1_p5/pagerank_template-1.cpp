@@ -22,9 +22,6 @@ std::vector<int> sinkFinder(std::set<int> nodes, std::map<int, int> o, std::map<
 
 	std::vector<int> sinks;
 
-
-	for (int node : nodes) {
-
 		for (int node : nodes) {
 
 			if (i.contains(node) && !o.contains(node)) {
@@ -37,7 +34,7 @@ std::vector<int> sinkFinder(std::set<int> nodes, std::map<int, int> o, std::map<
 				}
 			}
 		}
-	}
+	
 
 	return sinks;
 
@@ -199,9 +196,9 @@ int main() {
 	// ifstream file;
 		// file.open("web-Stanford.txt");
 
-	//std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
+	std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
 
-	std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
+//	std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
 
 
 	if (!file.is_open()) {
@@ -257,7 +254,7 @@ int main() {
 
 		for (int node : nodes) {
 			if (node != s) {
-				
+
 				to_id = node;
 
 				edges[to_id].push_back(from_id);
@@ -269,12 +266,14 @@ int main() {
 			}
 		}
 
-
+	}
 		double epsilon = 0.15, one_minus_epsilon = 1 - epsilon, avg_error = 0.00001;
 		int n = nodes.size();
 
 		int num_iterations = (int)(std::log(avg_error) / std::log(one_minus_epsilon));
+
 		double avg_epsilon = epsilon / n;
+
 		// Initialize pagerank
 		for (int node : nodes) {
 			pagerank[node] = 1.0 / n;
@@ -396,6 +395,6 @@ int main() {
 
 		//show();
 		topFivePageRankWriter(y_1, y_2, y_3, y_4, y_5);
+
 		return 0;
 	}
-}
