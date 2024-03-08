@@ -243,35 +243,32 @@ int main() {
 
 
 	//std::map<int, int> ::iterator it4;
+	int all_other_nodes  = nodes.size() - 1;
 
 	for (int s : sink_nodes) {
-		out_degree[s] += (nodes.size() - 1);
-		
-		for (auto i = in_degree.begin(); i != in_degree.end(); i++){
+		from_id = s;
 
-		//for (int node : nodes) {
-			if (i->first != s) {
-				in_degree[s]++;
+		int current_out_degree = out_degree[from_id];
+		current_out_degree += (all_other_nodes);
+		out_degree[from_id] = current_out_degree;
+
+		//for (auto i = in_degree.begin(); i != in_degree.end(); i++){
+
+
+		for (int node : nodes) {
+			if (node != s) {
+				
+				to_id = node;
+
+				edges[to_id].push_back(from_id);
+
+				int current_in_degree = in_degree[to_id];
+
+				current_in_degree++;
+				in_degree[to_id] = current_in_degree;
 			}
 		}
-		//for (it4 = out_degree.begin(); it4 != out_degree.end(); it4++) {
 
-			//int current_node = it4->first;
-
-			// Count the occurrences of the target value in the 
-			// vector 
-			//int cnt = std::count(sink_nodes.begin(), sink_nodes.end(), current_node);
-
-			// Check if the target value was found 
-			/*if (cnt > 0) {
-				out_degree[current_node] += (nodes.size() - 1);
-				for (int node : nodes) {
-					if (node != current_node) {
-						in_degree[node]++;
-					}
-				}
-			}*/
-			//}
 
 		double epsilon = 0.15, one_minus_epsilon = 1 - epsilon, avg_error = 0.00001;
 		int n = nodes.size();
