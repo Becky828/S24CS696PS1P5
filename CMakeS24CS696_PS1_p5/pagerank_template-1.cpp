@@ -1,5 +1,3 @@
-//#include "matplotlibcpp.h"
-#include <matplot/matplot.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,8 +8,6 @@
 #include <cmath>
 
 // Custom comparison function to compare pairs based on the second value
-//bool compareSecond(std::pair<int, double>& a, std::pair<int, double>& b) {
-
 bool compareSecond(const std::pair<int, double>& a, const std::pair<int, double>& b) {
 	return a.second > b.second;
 }
@@ -22,22 +18,22 @@ std::vector<int> sinkFinder(std::set<int> nodes, std::map<int, int> o, std::map<
 
 	std::vector<int> sinks;
 
-		for (int node : nodes) {
+	for (int node : nodes) {
 
-			if (i.contains(node) && !o.contains(node)) {
+		//A sink is a node with no out degree
+		// So, if a node is in the in degree map but not in the out degree map, it is a sink.
+		if (i.contains(node) && !o.contains(node)) {
 
-				int cnt = std::count(sinks.begin(), sinks.end(), node);
+			//Ensure that the sink is not already in the vector
+			int cnt = std::count(sinks.begin(), sinks.end(), node);
 
-				// Check if the target value was found 
-				if (cnt == 0) {
-					sinks.push_back(node);
-				}
+			// Check if the target value was found 
+			if (cnt == 0) {
+				sinks.push_back(node);
 			}
 		}
-	
-
+	}
 	return sinks;
-
 }
 
 // Function to sort the map according 
@@ -60,7 +56,7 @@ std::vector<std::pair<int, double> > sort(std::map<int, double> M)
 	return A;
 }
 
-// Print the first thousand entries of the multimap
+// A function that prints the first thousand page ranks
 void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 
 	//Initialize the counter
@@ -74,7 +70,7 @@ void topThousandPrinter(std::vector<std::pair<int, double> >  V) {
 	}
 }
 
-//Gets the ids of the top 5 pagerank nodes
+//A function that gets the IDs of the top 5 pagerank nodes
 std::vector<int> topFiveIDGetter(std::vector<std::pair<int, double> >  V) {
 
 	// Initialize the counter
@@ -124,9 +120,7 @@ void fileCloser(std::fstream& f) {
 
 
 
-//Writes each node and its pagerank to a text file line line by line in decreasing order of pagerank
-//void pageRankWriter(std::map<int, double>   V) {
-
+//A function that writes each node and its pagerank to a text file line line by line in decreasing order of pagerank
 void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 	char filename[] = "pagerank_out.txt";
@@ -136,52 +130,57 @@ void pageRankWriter(std::vector<std::pair<int, double> > V) {
 
 		file << v.second << ' ' << v.first << std::endl;
 	}
-
-	//file.close();
 	fileCloser(file);
 }
 
+//A function that writes output for the top 5 nodes in their respective text output files
 void topFivePageRankWriter(std::vector<double> V1, std::vector<double> V2, std::vector<double> V3,
 	std::vector<double> V4, std::vector<double> V5) {
 
+	//Initializes top five file names
 	char filename_top_first[] = "top_first_out.txt";
 	char filename_top_second[] = "top_second_out.txt";
 	char filename_top_third[] = "top_third_out.txt";
 	char filename_top_fourth[] = "top_fourth_out.txt";
 	char filename_top_fifth[] = "top_fifth_out.txt";
 
+	//Loads the top five files
 	std::fstream file1 = fileLoader(filename_top_first);
 	std::fstream file2 = fileLoader(filename_top_second);
 	std::fstream file3 = fileLoader(filename_top_third);
 	std::fstream file4 = fileLoader(filename_top_fourth);
 	std::fstream file5 = fileLoader(filename_top_fifth);
 
+	//Writes the text output for the top first node
 	for (double v1 : V1) {
 
 		file1 << v1 << std::endl;
 	}
 
+	//Writes the text output for the top second node
 	for (double v2 : V2) {
 
 		file2 << v2 << std::endl;
 	}
 
+	//Write the text output for the top third node
 	for (double v3 : V3) {
 
 		file3 << v3 << std::endl;
 	}
 
+	//Writes the text output for the top fourth node
 	for (double v4 : V4) {
 
 		file4 << v4 << std::endl;
 	}
 
+	//Writes the text output for the top fifth node
 	for (double v5 : V5) {
 
 		file5 << v5 << std::endl;
 	}
 
-	//file.close();
 	fileCloser(file1);
 	fileCloser(file2);
 	fileCloser(file3);
@@ -191,14 +190,11 @@ void topFivePageRankWriter(std::vector<double> V1, std::vector<double> V2, std::
 
 
 int main() {
-	using namespace matplot;
-
-	// ifstream file;
-		// file.open("web-Stanford.txt");
 
 	std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
 
-//	std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
+	//Test file
+	//	std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
 
 
 	if (!file.is_open()) {
@@ -209,6 +205,7 @@ int main() {
 	std::cout << "Opened file successfully" << std::endl;
 
 	std::string line;
+
 	// Skip the first 4 lines
 	for (int i = 0; i < 4; ++i) {
 		if (!std::getline(file, line)) {
@@ -217,12 +214,17 @@ int main() {
 		}
 	}
 
+	//Initializes data structures required for page rank algorithms
 	std::map<int, std::vector<int>> edges;
-	std::map<int, double> pagerank, previous_pagerank;
-	std::map<int, double> top_five_pagerank, top_five_previous_pagerank;
 	std::set<int> nodes;
 	std::map<int, int> out_degree, in_degree;
 
+	//For regular page rank
+	std::map<int, double> pagerank, previous_pagerank;
+
+	//For top five page rank
+	std::map<int, double> top_five_pagerank, top_five_previous_pagerank;
+	
 	int from_id, to_id;
 	while (file >> from_id >> to_id) {
 		// Process the edge here
@@ -233,168 +235,185 @@ int main() {
 		nodes.insert(to_id);
 	}
 
-
 	file.close();
 
+	//Gets a vector containing the sinks
 	std::vector<int> sink_nodes = sinkFinder(nodes, out_degree, in_degree);
 
-
-	//std::map<int, int> ::iterator it4;
-	int all_other_nodes  = nodes.size() - 1;
+	//Required for fixing sink nodes
+	int all_other_nodes = nodes.size() - 1;
 
 	for (int s : sink_nodes) {
+		
+		//Clarifies then duty of s
 		from_id = s;
 
+		//Updates each sink nodes outdegree by adding all other nodes to the sink node's out degree
 		int current_out_degree = out_degree[from_id];
 		current_out_degree += (all_other_nodes);
 		out_degree[from_id] = current_out_degree;
 
-		//for (auto i = in_degree.begin(); i != in_degree.end(); i++){
-
-
+		//Fixes the sink node issue
 		for (int node : nodes) {
 			if (node != s) {
 
+				//Clarifies the duty of node
 				to_id = node;
 
-				edges[to_id].push_back(from_id);
+				//Adds all other nodes as a sink node's edges
+				edges[from_id].push_back(to_id);
 
+				//Updates each sink nodes indegree by adding all other nodes to the sink node's in degree
 				int current_in_degree = in_degree[to_id];
-
 				current_in_degree++;
 				in_degree[to_id] = current_in_degree;
 			}
 		}
 
 	}
-		double epsilon = 0.15, one_minus_epsilon = 1 - epsilon, avg_error = 0.00001;
-		int n = nodes.size();
 
-		int num_iterations = (int)(std::log(avg_error) / std::log(one_minus_epsilon));
+	//Initiales some variables required for page rank algorithm
+	double epsilon = 0.15, one_minus_epsilon = 1 - epsilon, avg_error = 0.00001;
+	int n = nodes.size();
 
-		double avg_epsilon = epsilon / n;
+	int num_iterations = (int)(std::log(avg_error) / std::log(one_minus_epsilon));
 
-		// Initialize pagerank
-		for (int node : nodes) {
-			pagerank[node] = 1.0 / n;
-		}
-		//pageRankWriter(pagerank);
+	double avg_epsilon = epsilon / n;
 
-		//A
-		// Implement the pagerank algorithm here
-		for (int t = 1; t < num_iterations + 1; t++)
-		{
-			previous_pagerank = pagerank;
-			for (int node : nodes)
-			{
-				double sum = 0;
-				for (int from_node : edges[node])
-				{
-					sum += previous_pagerank[from_node] / out_degree[from_node];
-				}
-				pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
-			}
-
-		}
-
-		std::vector<std::pair<int, double> >  sorted = sort(pagerank);
-
-		// Print the pagerank of the top 1000 nodes
-		topThousandPrinter(sorted);
-
-
-		// Output all the nodes and their pageranks in a file
-		pageRankWriter(sorted);
-
-
-		//B
-		//Top 5 pagerank tracker here
-		// 	
-
-		// Initialize the vectors for file output
-		std::vector<double> y_1;
-		std::vector<double> y_2;
-		std::vector<double> y_3;
-		std::vector<double> y_4;
-		std::vector<double> y_5;
-
-		std::vector<int> topFiveIds = topFiveIDGetter(sorted);
-
-		// Initialize plotted pagerank
-		for (int node : nodes) {
-			top_five_pagerank[node] = 1.0 / n;
-		}
-
-		std::map<int, double> ::iterator it3;
-
-		// Plot the latest pageranks of the top 5 nodes
-
-		int top_first = topFiveIds[0];
-		int top_second = topFiveIds[1];
-		int top_third = topFiveIds[2];
-		int top_fourth = topFiveIds[3];
-		int top_fifth = topFiveIds[4];
-
-		std::vector<int> t_index;
-
-		for (int t = 1; t < num_iterations + 1; t++)
-		{
-			t_index.push_back(t);
-
-			top_five_previous_pagerank = top_five_pagerank;
-
-			for (it3 = top_five_previous_pagerank.begin(); it3 != top_five_previous_pagerank.end(); it3++) {
-
-				int current_node = it3->first;
-				double current_pagerank = it3->second;
-
-				// Count the occurrences of the target value in the 
-				// vector 
-				int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), current_node);
-
-				// Check if the target value was found 
-				if (cnt > 0) {
-
-					if (current_node == top_first) {
-						y_1.push_back(current_pagerank);
-					}
-					else if (current_node == top_second) {
-						y_2.push_back(current_pagerank);
-					}
-					else if (current_node == top_third) {
-						y_3.push_back(current_pagerank);
-					}
-					else if (current_node == top_fourth) {
-						y_4.push_back(current_pagerank);
-					}
-					else if (current_node == top_fifth) {
-						y_5.push_back(current_pagerank);
-					}
-
-				}
-			}
-
-			for (int node : nodes)
-			{
-				double sum = 0;
-				for (int from_node : edges[node])
-				{
-					sum += top_five_previous_pagerank[from_node] / out_degree[from_node];
-				}
-				top_five_pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
-			}
-
-		}
-
-		//plot(t_index, y_1)->line_width(2).color("red");
-		//plot(t_index, y_1)->color({ 0.f, 0.7f, 0.9f });
-		/*plot(x_2, y_2)->line_width(2).color("blue");
-		plot(x_3, y_3)->line_width(2).color("green");
-		plot(x_4, y_4)->line_width(2).color("yellow");
-		plot(x_5, y_5)->line_width(2).color("black");*/
-
-		//show();
-		topFivePageRankWriter(y_1, y_2, y_3, y_4, y_5);
-
-		return 0;
+	// Initialize pagerank
+	for (int node : nodes) {
+		pagerank[node] = 1.0 / n;
 	}
+
+	//A
+	// Implement the pagerank algorithm here
+
+	//Incrementally performs 1 to T iterations
+	for (int t = 1; t < num_iterations + 1; t++)
+	{
+		//Copies the most recent page rank map
+		previous_pagerank = pagerank;
+		
+		//Incrementally iterates through the nodes at locations indexed 1 to n
+		for (int node : nodes)
+		{
+			//Sets sum to 0
+			double sum = 0;
+
+			//Incrementally iterates through the edges of a given node
+			for (int from_node : edges[node])
+			{
+				//Performs a summation of the quotient resulting from the previous page rank divided by the outdegree of the from node
+				sum += (previous_pagerank[from_node] / out_degree[from_node]);
+			}
+
+			//Updates the page rank by evaluating the sum with the damping factor
+			pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
+		}
+	}
+
+	//Gets a vector of the page ranks sorted in descending ordr
+	std::vector<std::pair<int, double> >  sorted = sort(pagerank);
+
+	// Print the pagerank of the top 1000 nodes
+	topThousandPrinter(sorted);
+
+
+	// Output all the nodes and their pageranks in a file
+	pageRankWriter(sorted);
+
+
+	//B
+	//Top 5 pagerank tracker here
+	// 	
+
+	// Initialize the vectors for file output
+	std::vector<double> y_1;
+	std::vector<double> y_2;
+	std::vector<double> y_3;
+	std::vector<double> y_4;
+	std::vector<double> y_5;
+
+	//Gets a vector containing the IDs of the top five nodes
+	std::vector<int> topFiveIds = topFiveIDGetter(sorted);
+
+	// Initialize top five pagerank
+	for (int node : nodes) {
+		top_five_pagerank[node] = 1.0 / n;
+	}
+
+	std::map<int, double> ::iterator it3;
+
+	// Store the latest pageranks of the top 5 nodes in the respective vector
+	int top_first = topFiveIds[0];
+	int top_second = topFiveIds[1];
+	int top_third = topFiveIds[2];
+	int top_fourth = topFiveIds[3];
+	int top_fifth = topFiveIds[4];
+	std::vector<int> t_index;
+
+	//Runs for 1 to T iterations
+	for (int t = 1; t < num_iterations + 1; t++)
+	{
+		t_index.push_back(t);
+
+		//Copy the most recent page rank map
+		top_five_previous_pagerank = top_five_pagerank;
+
+		//Iterate through the most recent page rank map
+		for (it3 = top_five_previous_pagerank.begin(); it3 != top_five_previous_pagerank.end(); it3++) {
+
+			//Collect the relevant information
+			int current_node = it3->first;
+			double current_pagerank = it3->second;
+
+			// Count the occurrences of the target value in the 
+			// vector 
+			int cnt = std::count(topFiveIds.begin(), topFiveIds.end(), current_node);
+
+			// Check if the target value was found 
+			if (cnt > 0) {
+
+				//Adds the most recent top first page rank to the first vector
+				if (current_node == top_first) {
+					y_1.push_back(current_pagerank);
+				}
+
+				//Adds the most recent top second page rank to the second vector
+				else if (current_node == top_second) {
+					y_2.push_back(current_pagerank);
+				}
+
+				//Adds the most recent top third page rank to the third vector
+				else if (current_node == top_third) {
+					y_3.push_back(current_pagerank);
+				}
+
+				//Adds the most recent top fourth page rank to the fourth vector
+				else if (current_node == top_fourth) {
+					y_4.push_back(current_pagerank);
+				}
+
+				//Adds the most recent top fifth page rank to the fifth vector
+				else if (current_node == top_fifth) {
+					y_5.push_back(current_pagerank);
+				}
+			}
+		}
+
+		for (int node : nodes)
+		{
+			double sum = 0;
+			for (int from_node : edges[node])
+			{
+				sum += top_five_previous_pagerank[from_node] / out_degree[from_node];
+			}
+			top_five_pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
+		}
+
+	}
+
+	topFivePageRankWriter(y_1, y_2, y_3, y_4, y_5);
+
+	return 0;
+}
