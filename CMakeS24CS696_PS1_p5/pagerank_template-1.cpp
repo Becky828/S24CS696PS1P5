@@ -298,7 +298,7 @@ int main() {
 		for (int node : nodes)
 		{
 			//Sets sum to 0
-			double sum = 0;
+			double sum = 0.0;
 
 			//Incrementally iterates through the edges of a given node
 			for (int from_node : edges[node])
@@ -352,12 +352,12 @@ int main() {
 	int top_fifth = topFiveIds[4];
 	std::vector<int> t_index;
 
-	//Runs for 1 to T iterations
+	//Incrementally performs 1 to T iterations
 	for (int t = 1; t < num_iterations + 1; t++)
 	{
 		t_index.push_back(t);
 
-		//Copy the most recent page rank map
+		//Copies the most recent page rank map
 		top_five_previous_pagerank = top_five_pagerank;
 
 		//Iterate through the most recent page rank map
@@ -401,19 +401,28 @@ int main() {
 			}
 		}
 
+		//Incrementally iterates through the nodes at locations indexed 1 to n
 		for (int node : nodes)
 		{
-			double sum = 0;
+			//Sets sum to 0
+			double sum = 0.0;
+
+			//Incrementally iterates through the edges of a given node
 			for (int from_node : edges[node])
 			{
+				//Performs a summation of the quotient resulting from the previous page rank divided by the outdegree of the from node
 				sum += top_five_previous_pagerank[from_node] / out_degree[from_node];
 			}
+
+			//Updates the page rank by evaluating the sum with the damping factor
 			top_five_pagerank[node] = one_minus_epsilon * sum + avg_epsilon;
 		}
 
 	}
 
+	//Submits the vectors for the top five page rank nodes to the function designated to write them to respective text output files
 	topFivePageRankWriter(y_1, y_2, y_3, y_4, y_5);
 
+	//Returns code 0 when the program runs and exits properly with no errors
 	return 0;
 }
