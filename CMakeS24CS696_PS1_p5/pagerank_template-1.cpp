@@ -240,7 +240,7 @@ int main() {
 	//Gets a vector containing the sinks
 	std::vector<int> sink_nodes = sinkFinder(nodes, out_degree, in_degree);
 
-	//Required for fixing sink nodes
+	///Required for fixing sink nodes
 	int all_other_nodes = nodes.size() - 1;
 
 	for (int s : sink_nodes) {
