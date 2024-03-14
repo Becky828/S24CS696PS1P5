@@ -201,10 +201,10 @@ void topFivePageRankWriter(std::vector<double> V1, std::vector<double> V2, std::
 
 int main() {
 
-	//std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
+	std::ifstream file("web-Stanford.txt"); // Change "edges.txt" to your file name
 
 	//Test file
-		std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
+	//std::ifstream file("web-Stanford_very_abridged.txt"); // Change "edges.txt" to your file name
 
 	if (!file.is_open()) {
 		std::cerr << "Unable to open file" << std::endl;
